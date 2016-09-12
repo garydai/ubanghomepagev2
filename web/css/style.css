@@ -289,6 +289,21 @@ h2,
 .h2 {
     font-size: 35px;
 }
+h3 a {
+    color: #CAD7E2;
+    text-decoration: none;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+}
+h3 a:hover,
+h3 a:focus {
+    color: #CAD7E2;
+    text-decoration: none;
+}
+h3 a:focus {
+    outline: none;
+}
+
 h3,
 .h3 {
     font-size: 25px;
@@ -4496,6 +4511,15 @@ footer p {
     border-top: none;
     padding-top: 1px;
 }
+
+#footer .footer {
+    margin: 0 auto;
+    color: #515151;
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+}
+
 .last-col {
     overflow: hidden;
 }
@@ -4792,3 +4816,10 @@ footer p {
     }
 }
 /* Localized */
+
+footer{background-color: #ffc0cb;}
+
+/* 动态为footer添加类fixed-bottom */
+.fixed-bottom {position: fixed;bottom: 0;width:100%;}
+
+

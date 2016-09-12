@@ -57,7 +57,7 @@ use app\assets\AppAsset;
 <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">连接我们的资源</h3>
 <ul class="list-inline intro-social-buttons">
 </li>
-<li id="download"><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">点击下载APP</span></a>
+<li id="download"><a href="#screen" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">点击下载APP</span></a>
 </li>
 </ul>
 </div>
@@ -172,8 +172,8 @@ use app\assets\AppAsset;
 </div>
 <div class="row">
 <div class="col-sm-4 wow fadeInDown text-center">
-<img class="rotate" src="img/iosqrcode.png" height="200" width="200"  alt="Generic placeholder image">
-<h3>ios版</h3>
+<img class="" src="img/iosqrcode.png" height="200" width="200"  alt="Generic placeholder image">
+<h3><a href="https://itunes.apple.com/us/app/you-wen-you-bang/id1125870151?l=zh&ls=1&mt=8">ios版</a></h3>
 
 </div>
 
@@ -250,21 +250,22 @@ use app\assets\AppAsset;
 </script>
 
  <?php echo $content; ?>
-
-<footer>
-<div class="container">
-<div class="row">
-<div class="col-md-7">
-<h3 class="footer-title"></h3>
-<p>All Rights Reserved
-</p>
- 
-</div>  
-
+<div id="footer"><div class="section bg footer">
+    <p>杭州烛龙科技有限公司 2016 © 版权所有</p>
+    <p><img class="" src="img/beian.jpg" height="20" width="20"  alt="Generic placeholder image">浙公网安备 33010402002536号</p>
 </div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?5346617a684de92c86ffde20e3585b65";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </div>
-</footer>
  
+<footer>footer</footer>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/owl.carousel.js"></script>
@@ -287,9 +288,27 @@ use app\assets\AppAsset;
         density: 'medium'
       };
       var particleCanvas = new ParticleNetwork(canvasDiv, options);
-          });
-          });
-  
+          
+function footerPosition(){
+        $("footer").removeClass("fixed-bottom");
+        var contentHeight = document.body.scrollHeight,//网页正文全文高度
+            winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+        if(!(contentHeight > winHeight)){
+            //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+            $("footer").addClass("fixed-bottom");
+        } else {
+            $("footer").removeClass("fixed-bottom");
+        }
+    }
+    footerPosition();
+    $(window).resize(footerPosition);
+
+
+	});
+          
+	
+
+	});
   </script>
  
 <script type="text/javascript" src="js/jquery.corner.js"></script>
