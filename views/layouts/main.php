@@ -93,7 +93,6 @@ use app\assets\AppAsset;
             <li class="menuItem"><a href="#screen">下载</a></li>
             <li class="menuItem"><a href="#contact">联系我们</a></li>
             <li class="menuItem"><a href="#discuss">说点什么</a></li>
-	    <li class="menuItem"><a href="https://itunes.apple.com/cn/app/id477927812" id="openApp">贴吧客户端</a></li>
             </ul>
         </div>
     </div>
@@ -178,12 +177,10 @@ use app\assets\AppAsset;
 
                 <p class="lead" style="margin-top:0"></p>
                 </div>
-                <div class="row">
                 <div class="col-sm-4 wow fadeInDown text-center">
                 <img class="" src="img/iosqrcode.png" height="200" width="200"  alt="Generic placeholder image">
                 <h3><a href="https://itunes.apple.com/us/app/you-wen-you-bang/id1125870151?l=zh&ls=1&mt=8">ios版</a></h3>
 
-                </div>
 
 
                 </div>
@@ -261,7 +258,7 @@ use app\assets\AppAsset;
 
          <?php echo $content; ?>
     </div>
-
+</div>
     <div id="footer">
         <div class="section bg footer">
             <p>杭州烛龙科技有限公司 2016 © 版权所有</p>
@@ -347,6 +344,8 @@ $(function()
 	}
 });
 -->
+
+
 </script>
  
 <script type="text/javascript" src="js/jquery.corner.js"></script>
