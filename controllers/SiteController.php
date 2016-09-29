@@ -87,8 +87,9 @@ class SiteController extends Controller
         //echo $ip;
         date_default_timezone_set('Asia/Shanghai');
         $discuss->createTime =  date('Y-m-d H:i:s');
-        $discuss->message = $_POST['msg'];
-        $discuss->ip = $ip;
+        $discuss->message = htmlentities($_POST['msg']);
+        //echo $discuss->message;
+	$discuss->ip = $ip;
         $discuss->save();
         $html = '<li>
                     <p>

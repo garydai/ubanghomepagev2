@@ -37,7 +37,7 @@
                         <span data-bind="text: username" class="username"></span><?php echo $m->ip ?><br />
                     </p>
                     <p>
-                        <span data-bind="text: message"><?php echo $m->message?></span>
+                        <span data-bind="text: message"><?php echo nl2br($m->message)?></span>
                     </p>
  
                     <p class="no-pad-bottom date-posted">Posted <span data-bind="text: moment(date).calendar()" /><?php echo $m->createTime?></p>
