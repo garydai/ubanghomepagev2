@@ -177,10 +177,10 @@ use app\assets\AppAsset;
 
                 <p class="lead" style="margin-top:0"></p>
                 </div>
-                <div class="col-sm-4 wow fadeInDown text-center">
-                <img class="" src="img/iosqrcode.png" height="200" width="200"  alt="Generic placeholder image">
+                <div class="col-md-6 col-md-offset-3 text-center wrap_title wow fadeInDown text-center">
+                <img class="" src="img/qr.jpg" height="200" width="200"  alt="Generic placeholder image">
                 <h3><a href="https://itunes.apple.com/us/app/you-wen-you-bang/id1125870151?l=zh&ls=1&mt=8">ios版</a></h3>
-
+		<h3><a href="http://sj.qq.com/myapp/detail.htm?apkName=appframe.appframe">安卓版</a></h3>
 
 
                 </div>
@@ -261,8 +261,9 @@ use app\assets\AppAsset;
 </div>
     <div id="footer">
         <div class="section bg footer">
-            <p>杭州烛龙科技有限公司 2016 © 版权所有</p>
-            <p><img class="" src="img/beian.jpg" height="20" width="20"  alt="Generic placeholder image">浙公网安备 33010402002536号</p>
+            <p>杭州烛龙科技有限公司 2015-2016 © 版权所有</p>
+            <p>浙ICP备15026959号-1</p>
+	    <p><img class="" src="img/beian.jpg" height="20" width="20"  alt="Generic placeholder image">浙公网安备 33010402002536号</p>
         </div>
 
        
