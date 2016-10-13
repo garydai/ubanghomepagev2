@@ -10,6 +10,7 @@ use app\models\Discuss;
 class SiteController extends Controller
 {
    // public $enableCsrfValidation = false;
+	public $layout='homepage';
     public function behaviors()
     {
         return [
