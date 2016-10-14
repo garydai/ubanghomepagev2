@@ -269,6 +269,10 @@ html {
     /*border-bottom: 1px solid #e7e7e7;*/
     padding: 90px 0;
 }
+.section-relationship{
+    width: 100%;
+    height: 100%;
+}
 .section-xiazai {
     padding-top:300px;
     padding-bottom: 300px;
@@ -1039,4 +1043,11 @@ p.copyright {
     .codrops-icon span {
         display: none;
     }
+}
+
+
+#spec{
+    top: 40;
+    left: 700;
+    position: relative;
 }
