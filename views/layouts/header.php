@@ -5,24 +5,10 @@
     <meta name="author" content="">
     <title>友帮网</title>
      
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!--link href="css/bootstrap2.min.css" rel="stylesheet"-->
+    <link href="css/bootstrap2.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="css/general.css" rel="stylesheet">
-     
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/particle-network.css" rel="stylesheet">
-    <link href="css/discuss.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/magnific-popup.css">
     <script type="text/javascript" src=" /js/jquery-2.1.1.min.js"></script>
-    <script src="js/modernizr-2.6.2.min.js"></script> 
-    <script src="js/jquery.bootpag.min.js"></script> 
-
+    <script type="text/javascript" src=" /js/bootstrap.js"></script>
 
 
 </head>

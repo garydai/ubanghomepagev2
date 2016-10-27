@@ -440,7 +440,7 @@
             $.ajax({
                     type: "get",
                     url: "/index.php?r=relationship/friend",
-                    data:{"id":3001},
+                    data:{"id":<?php echo $userId?>},
                     success: function(json) {
                        // window.alert(html);
                         
