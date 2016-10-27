@@ -1,0 +1,19 @@
+.wrap > .container {
+    padding: 90px 0px 0;
+}
+#w0
+{
+	background-color: #fff;
+}
+#w0-collapse
+{
+	padding: 20px;
+}
+
+/*======footer*/
+
+#footer {
+    padding: 20px 0px;
+    background: #f3f3f3;
+    text-align: center;
+}

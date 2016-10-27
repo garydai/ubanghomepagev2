@@ -6,6 +6,9 @@
     <title>友帮网</title>
      
     <link href="css/bootstrap2.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src=" /js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src=" /js/bootstrap.js"></script>
