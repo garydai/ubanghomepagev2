@@ -23,7 +23,7 @@ AppAsset::register($this);
 <header class="header">
     <div class="menu clear">
         <a class="logo" href="/">
-            <img src="http://www.miservice.cn/common/images/cache/logo225X45.png" width="225" height="45" alt="logo"/>
+            <img src="/img/brand.png"  alt="logo"/>
         </a>
         <i class="menu_mobile" onclick="menu_mobile_switch(this);"></i>
         <div class="blockeasing-warpp">
@@ -34,23 +34,23 @@ AppAsset::register($this);
                 </li>
                 <li >
                     <span class="menu_hover"></span>
-                    <a href="/statistics/index.html">域名报表</a>
+                    <a href="/statistics/index.html">什么是友帮</a>
                 </li>
                 <li >
                     <span class="menu_hover"></span>
-                    <a href="/product/index.html">我的Mi</a>
+                    <a href="/product/index.html">我的帮友</a>
                 </li>
                 <li >
                     <span class="menu_hover"></span>
-                    <a href="/domain/index.html">Mi查询</a>
+                    <a href="/domain/index.html">APP下载</a>
                 </li>
                 <li >
                     <span class="menu_hover"></span>
-                    <a href="/article/index.html">关于域名</a>
+                    <a href="/article/index.html">关于友帮</a>
                 </li>
                 <li >
                     <span class="menu_hover"></span>
-                    <a href="/about/index.html">关于我们</a>
+                    <a href="/about/index.html">登录</a>
                 </li>
             </ul>
         </div>

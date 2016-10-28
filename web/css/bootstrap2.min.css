@@ -3,13 +3,14 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *//*! normalize.css v3.0.2 | MIT License | git.io/normalize */html {
-	font-family: sans-serif;
+	font-family: '微软雅黑';
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
 
+
 body {
-	margin: 0
+	margin: 0;
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
@@ -4549,7 +4550,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 		position: static;
 		float: none;
 		width: auto;
-		margin-top: 30px;
+		margin-top: 0;
 		background-color: transparent;
 		border: 0;
 		-webkit-box-shadow: none;
