@@ -7,11 +7,19 @@
      
     <link href="css/bootstrap2.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <link href="css/slider.css" rel="stylesheet">
     
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src=" /js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src=" /js/bootstrap.js"></script>
+
+    
+
+    <!--start slider -->
+    <link rel="stylesheet" href="/css/fwslider.css" media="all">
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/css3-mediaqueries.js"></script>
+    <script src="/js/fwslider.js"></script>
+    <!--end slider -->
 
 
 </head>

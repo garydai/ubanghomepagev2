@@ -2,7 +2,7 @@
         <div class="section bg footer">
             <p>杭州烛龙科技有限公司 2016 © 版权所有</p>
             <p>浙ICP备15026959号-1</p>
-            <p><img class="" src="img/beian.jpg" height="20" width="20"  alt="Generic placeholder image">浙公网安备 33010402002536号</p>
+            <p><img class="" src="img/beian.jpg" height="20" width="20"  alt="Generic placeholder image">  浙公网安备 33010402002536号</p>
         </div>
 
        

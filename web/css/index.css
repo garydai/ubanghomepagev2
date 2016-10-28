@@ -1,6 +1,20 @@
-.wrap > .container {
-    padding: 90px 0px 0;
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+   
 }
+
+.view
+{
+
+    
+    padding-top: 90px;
+    
+}
+
+
+
 #w0
 {
 	background-color: #fff;
@@ -14,7 +28,16 @@
 
 #footer {
     padding: 20px 0px;
-    
     text-align: center;
-    font-style: 12px;
+    font-size: 12px;
+}
+
+.view-bg {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* background: #262729; */
 }
