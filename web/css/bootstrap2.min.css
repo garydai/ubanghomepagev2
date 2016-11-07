@@ -1348,7 +1348,7 @@ html {
 }
 
 body {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: '微软雅黑';
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #333;
@@ -1368,7 +1368,7 @@ a {
 
 a:focus,a:hover {
 	color: #23527c;
-	text-decoration: underline
+	
 }
 
 a:focus {
@@ -1482,7 +1482,8 @@ hr {
 }
 
 .h3,h3 {
-	font-size: 24px
+	font-size: 20px;
+	color: #333333;
 }
 
 .h4,h4 {
@@ -1504,13 +1505,12 @@ p {
 .lead {
 	margin-bottom: 20px;
 	font-size: 16px;
-	font-weight: 300;
-	line-height: 1.4
+	color:#333333;
 }
 
 @media (min-width:768px) {
 	.lead {
-		font-size: 21px
+		font-size: 16px
 	}
 }
 
@@ -2995,7 +2995,9 @@ input[type=search] {
 }
 
 .form-group {
-	margin-bottom: 15px
+
+	margin-bottom: 15px;
+	height:40px;
 }
 
 .checkbox,.radio {
@@ -3010,7 +3012,8 @@ input[type=search] {
 	padding-left: 20px;
 	margin-bottom: 0;
 	font-weight: 400;
-	cursor: pointer
+	cursor: pointer;
+	color:#999999;
 }
 
 .checkbox input[type=checkbox],.checkbox-inline input[type=checkbox],.radio input[type=radio],.radio-inline input[type=radio] {

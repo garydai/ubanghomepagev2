@@ -14,7 +14,7 @@ a.logo{
 }
 
 div.menu{
-	width:960px;
+	width:1200px;
 	margin:0 auto;
 }
 
@@ -68,7 +68,6 @@ ul.blockeasing li .menu_hover{
 	position:absolute;
 	top:0px;
 	left:0px;
-	background:#1F85AA;
 	z-index:0;
 	display:none;
 }

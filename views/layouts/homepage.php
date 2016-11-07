@@ -28,29 +28,24 @@ AppAsset::register($this);
         <i class="menu_mobile" onclick="menu_mobile_switch(this);"></i>
         <div class="blockeasing-warpp">
             <ul class="blockeasing">
-                <li class="current">
+            
+                <li <?php if(Yii::$app->request->getUrl() == "/") echo 'class=" current"';?> >
                     <span class="menu_hover"></span>
                     <a href="/">首页</a>
                 </li>
-                <li >
-                    <span class="menu_hover"></span>
-                    <a href="/statistics/index.html">什么是友帮</a>
-                </li>
+                
                 <li >
                     <span class="menu_hover"></span>
                     <a href="/product/index.html">我的帮友</a>
                 </li>
-                <li >
+                
+                <li <?php if(Yii::$app->request->getUrl() == "/index.php?r=contact") echo 'class=" current"';?>>
                     <span class="menu_hover"></span>
-                    <a href="/domain/index.html">APP下载</a>
+                    <a href="/index.php?r=contact">关于友帮</a>
                 </li>
-                <li >
+                <li <?php if(Yii::$app->request->getUrl() == "/index.php?r=login") echo 'class=" current"';?>>
                     <span class="menu_hover"></span>
-                    <a href="/article/index.html">关于友帮</a>
-                </li>
-                <li >
-                    <span class="menu_hover"></span>
-                    <a href="/about/index.html">登录</a>
+                    <a href="/index.php?r=login">登录</a>
                 </li>
             </ul>
         </div>
@@ -58,8 +53,6 @@ AppAsset::register($this);
 </header>
 
 
-
-  
 
     <div class="view">
         <?= Breadcrumbs::widget([
@@ -75,6 +68,13 @@ AppAsset::register($this);
 
 </div>
 
+<script type="text/javascript">
+
+$(".nav_menu").click(function(event){
+       //event就是点击对象
+       console.log(2);
+});
+</script>
 
 </body>
 </html>

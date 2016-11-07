@@ -13,7 +13,7 @@
     <script type="text/javascript" src=" /js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src=" /js/bootstrap.js"></script>
 
-    
+    <link href="css/logincss.css" rel="stylesheet">
 
     <!--start slider -->
     <link rel="stylesheet" href="/css/fwslider.css" media="all">

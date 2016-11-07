@@ -1,7 +1,6 @@
 <?php
 namespace app\models;
-use app\models\Userdb;
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $id;
     public $username;
@@ -24,6 +23,11 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'accessToken' => '101-token',
         ],
     ];
+    public static function tableName()
+    {
+        return 'User';
+    }
+
     /**
      * @inheritdoc
      */
@@ -52,13 +56,13 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public static function findByUsername($username)
     {
 
-       // $user = Userdb::find()->where(['Mobile' => $username])->one();
-       // if($user)
-         //   return $user;
-        //else 
-          //  return null;
+        $user = Userdb::find()->where(['Mobile' => $username])->one();
+        if($user)
+            return $user;
+        else 
+            return null;
 
-       
+       /*
 
         foreach (self::$users as $user) {
             if (strcasecmp($user['username'], $username) === 0) {
@@ -66,6 +70,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             }
         }
         return null;
+        */
     }
     /**
      * @inheritdoc

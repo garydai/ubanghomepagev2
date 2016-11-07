@@ -21,7 +21,7 @@ class LoginForm extends Model
             // username and password are both required
             [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
-            ['rememberMe', 'boolean'],
+           // ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
@@ -35,10 +35,10 @@ class LoginForm extends Model
      */
     public function validatePassword($attribute, $params)
     {
-        
+        echo 67;
         if (!$this->hasErrors()) {
             $curl = curl_init(); 
-            curl_setopt($curl, CURLOPT_URL, '114.55.100.9:1337/login.json'); 
+            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/login.json'); 
             curl_setopt($curl, CURLOPT_HEADER, 0); 
             curl_setopt($curl, CURLOPT_POST, 1);
             curl_setopt($curl, CURLOPT_POSTFIELDS,
@@ -52,19 +52,13 @@ class LoginForm extends Model
             // 关闭URL请求 
             curl_close($curl); 
             $info = json_decode($ret,true);
-           // $status = $info.ResponseStatus.Message;
-            //var_dump( $info['ResponseStatus']);
             $status =  $info['ResponseStatus']["Message"];
            
-          //  echo $status;
-           // echo strpos($status, 'Success');
             if (!(strpos($status, 'Success') !== false)) 
                 $this->addError($attribute, 'Incorrect username or password.');
             else 
             {
                 $ubuser = $info["Data"];
-          #  var_dump( $ubuser["User"]);
-           # echo $ubuser["User"]["Id"];
                 $this->userId = $ubuser["User"]["Id"];
 
             }
@@ -80,12 +74,14 @@ class LoginForm extends Model
      */
     public function login()
     {
-        
+        echo 34;
+        echo $this->username;
         if ($this->validate()) {
            // echo $this->rememberMe;
-            return  $this->userId;
+          //  return  $this->userId;
            // return true;
-          //  return Yii::$app->user->login($this->ubuser, $this->rememberMe ? 3600*24*30 : 0);
+            echo $this->username;
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
         }
         return false;
     }
