@@ -13,8 +13,20 @@
     left:0;
     z-index: 0;
     width:100%;
+    height: 480px;
+    background: #666 url(../img/h1.jpeg) center no-repeat;
+    background-size: 1920px 480px;
+
 }
 
+@media (max-width:767px) {
+    
+    #fwslider .slide 
+    {
+        height: 240px;
+    }
+
+}
 #fwslider .slide img {
     width:100%;
 }

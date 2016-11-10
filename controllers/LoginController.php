@@ -28,7 +28,7 @@ class LoginController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    
                 ],
             ],
         ];
@@ -50,23 +50,41 @@ class LoginController extends Controller
     public function actionIndex()
     {
 
+        if (!\Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         return $this->render('index', []);
     }
 
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->goHome();
+
+    }
     public function actionLogin()
     {
 
-
+        if (!\Yii::$app->user->isGuest) {
+            //echo 121212;
+            //return ;
+              return $this->goHome();
+        }
+      //  echo \Yii::$app->user->isGuest;
         $model = new LoginForm(); 
-        var_dump(Yii::$app->request->post());
+       // var_dump(Yii::$app->request->post());
 
         if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
              
-            
+          //  echo 'end';
+           // var_dump(Yii::$app->user);
+           // echo !\Yii::$app->user->isGuest;
              $this->redirect(array('site/index'));
          } else {
-            // return $this->render('index', []);
-            echo 12;
+         //   echo 'end';
+            return $this->render('index', []);
+            //echo 12;
         }
 
         return ;
@@ -96,7 +114,7 @@ class LoginController extends Controller
            // echo strpos($status, 'Success');
             if (!(strpos($status, 'Success') !== false)) 
             {
-                echo 123;
+                //echo 123;
                 return $this->render('index', []);
                // $this->addError('error', 'Incorrect username or password.');
             }

@@ -6,7 +6,7 @@
                 <div class="slide_shade"></div>
                 <div class="slide_loading"></div>
                 <!-- Slide image -->
-                 <img style="width:100%;" src="/img/slider1.png" >
+               
                 <!-- /Slide image -->
                 <!-- Texts container -->
                 <div class="slide_content">
@@ -30,35 +30,35 @@
     <!--/slider -->
     <div class="section1">
         <div class="container">
-        
+        <!--
             <div class="text-center wrap_title">
                 <h2>无信任 不交易</h2>
                 <p class="lead" style="margin-top:0"></p>
             </div>
             
-        
+        -->
             <div class="row">
                     <div class="col-sm-3   text-center" style="visibility: visible;">
                         <img class="rotate" src="img/economic.png" height="115" width="100" alt="Generic placeholder image">
-                        <h3>共享经济</h3>
-                        <p class="lead">熟人间的劳务，资源共享平台</p>
+                        <div class="first">共享经济 </div>
+                        <div class="lead">熟人间的劳务，资源共享平台</div>
                          
                     </div> 
                     <div class="col-sm-3 text-center " style="visibility: visible;">
                         <img class="rotate" src="img/connect.png" height="115" width="100" alt="Generic placeholder image">
-                        <h3>商务对接</h3>
+                        <div class="first">商务对接 </div>
                         <p class="lead">互联网商务对接、业务对接、资源对接、提供专业的人脉机会服务</p>
                          
                     </div> 
                     <div class="col-sm-3  text-center " style="visibility: visible;">
                         <img class="rotate" src="img/achieve.png" height="115" width="100" alt="Generic placeholder image">
-                        <h3>成就自己</h3>
+                        <div class="first">成就自己 </div>
                         <p class="lead">扩展人脉关系、好友评价增强个人魅力与信任</p>
                     </div> 
                     
                      <div class="col-sm-3 text-center " style="visibility: visible;">
                         <img class="rotate" src="img/selfbrand.png" height="115" width="100" alt="Generic placeholder image">
-                        <h3>个人品牌</h3>
+                        <div class="first">个人品牌 </div>
                         <p class="lead">专注于个体商户的展现和传播，为个体创造提供服务</p>
                     </div> 
 

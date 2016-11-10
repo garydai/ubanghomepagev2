@@ -53,32 +53,27 @@ class RelationshipController extends Controller
         
         if (!\Yii::$app->user->isGuest) {
 
-            $curl = curl_init(); 
-            $header = array ("Authorization:AppFrame 1-518a5f7fbda344ba9a568ed831b0c34a");
-            // 设置你需要抓取的URL 
-            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/contact/3001/first.json'); 
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-            // 设置header 响应头是否输出
-            curl_setopt($curl, CURLOPT_HEADER, 0); 
-            // 设置cURL 参数，要求结果保存到字符串中还是输出到屏幕上。
-            // 1如果成功只将结果返回，不自动输出任何内容。如果失败返回FALSE 
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
-            // 运行cURL，请求网页 
-            $ret = curl_exec($curl); 
-            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/profile/3001.json');
-            $userret = curl_exec($curl);
-            // 关闭URL请求 
-            curl_close($curl); 
-            $info = json_decode($ret,true);
-            $info2 = json_decode($userret, true);
-	    
-            $data  = $info['Data'];
-            $user = $info2['Data'];
-            //$b = $info['b'];
-            return $this->render('index', ['data'=>$data, 'user'=>$user]);
+            $id = Yii::$app->user->identity->attributes['Id'];
+            if($id != 0)
+                return $this->render('index', ['userId'=>$id]);
 
-           // return $this->render('index');
         }
+        $model = new LoginForm(); 
+       // var_dump(Yii::$app->request->post());
+
+        if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
+             
+          //  echo 'end';
+           // var_dump(Yii::$app->user);
+           // echo !\Yii::$app->user->isGuest;
+             $this->redirect(array('site/index'));
+         } else {
+         //   echo 'end';
+           $this->redirect(array('login/index'));
+            //echo 12;
+        }
+
+        /*
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) ) {
             $id = $model->login();
@@ -89,7 +84,7 @@ class RelationshipController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
-
+*/
        
     }
 
@@ -103,7 +98,7 @@ class RelationshipController extends Controller
             // 设置你需要抓取的URL 
         	curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/contact/'.$id.'/first.json'); 
           // echo '139.224.59.235:1337/contact/'.$id.'/first.json'; 
-	   curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+	        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
             // 设置header 响应头是否输出
             curl_setopt($curl, CURLOPT_HEADER, 0); 
             // 设置cURL 参数，要求结果保存到字符串中还是输出到屏幕上。

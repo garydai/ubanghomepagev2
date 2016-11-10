@@ -29,23 +29,23 @@ AppAsset::register($this);
         <div class="blockeasing-warpp">
             <ul class="blockeasing">
             
-                <li <?php if(Yii::$app->request->getUrl() == "/") echo 'class=" current"';?> >
+                <li <?php if( strpos( Yii::$app->request->getUrl(), 'site' ) !== false || Yii::$app->request->getUrl() == "/") echo 'class=" current"';?> >
                     <span class="menu_hover"></span>
                     <a href="/">首页</a>
                 </li>
                 
-                <li >
+                 <li <?php if(strpos( Yii::$app->request->getUrl(), 'relationship') !== false) echo 'class=" current"';?>>
                     <span class="menu_hover"></span>
-                    <a href="/product/index.html">我的帮友</a>
+                    <a href="/index.php?r=relationship">我的帮友</a>
                 </li>
                 
-                <li <?php if(Yii::$app->request->getUrl() == "/index.php?r=contact") echo 'class=" current"';?>>
+                <li <?php if(strpos( Yii::$app->request->getUrl(), 'contact') !== false) echo 'class=" current"';?>>
                     <span class="menu_hover"></span>
                     <a href="/index.php?r=contact">关于友帮</a>
                 </li>
-                <li <?php if(Yii::$app->request->getUrl() == "/index.php?r=login") echo 'class=" current"';?>>
+                <li <?php if(strpos( Yii::$app->request->getUrl(), 'login') !== false) echo 'class=" current"';?>>
                     <span class="menu_hover"></span>
-                    <a href="/index.php?r=login">登录</a>
+                    <?php if(!Yii::$app->user->isGuest) echo  '<a href="/index.php?r=login/logout">登出</a>'; else echo '<a href="/index.php?r=login/login">登录</a>'; ?>
                 </li>
             </ul>
         </div>

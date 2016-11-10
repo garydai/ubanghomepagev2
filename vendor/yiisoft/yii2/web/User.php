@@ -170,9 +170,12 @@ class User extends Component
      */
     public function getIdentity($autoRenew = true)
     {
+
         if ($this->_identity === false) {
+
             if ($this->enableSession && $autoRenew) {
                 $this->_identity = null;
+       
                 $this->renewAuthStatus();
             } else {
                 return null;
@@ -343,6 +346,7 @@ class User extends Component
      */
     public function getIsGuest()
     {
+
         return $this->getIdentity() === null;
     }
 
@@ -466,6 +470,7 @@ class User extends Component
      */
     protected function afterLogin($identity, $cookieBased, $duration)
     {
+
         $this->trigger(self::EVENT_AFTER_LOGIN, new UserEvent([
             'identity' => $identity,
             'cookieBased' => $cookieBased,
@@ -536,6 +541,7 @@ class User extends Component
      */
     protected function sendIdentityCookie($identity, $duration)
     {
+
         $cookie = new Cookie($this->identityCookie);
         $cookie->value = json_encode([
             $identity->getId(),

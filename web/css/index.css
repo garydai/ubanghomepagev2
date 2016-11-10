@@ -67,8 +67,9 @@
         border:0;
         text-align:center;
         padding:15px 10px;
-    left:25%
+        left:25%
 }
+
 .login_ad_app_content{
         position:absolute;
         left:5%;
@@ -240,6 +241,16 @@
 {
     margin-bottom: 50px;
 }
+
+.section1 .row
+{
+    margin-top: 70px;
+}
+.section1 .lead
+{
+    
+    color: #666;
+}
 .section2
 {
     background-color: #f0f7ff;
@@ -250,6 +261,15 @@
     color: #333333;
     margin-top: 80px;
     margin-bottom: 60px;
+    font-weight: 700;
+}
+.section1 .first
+{
+    
+    font-size: 20px;
+    color: #333333;
+    margin-top: 30px;
+    margin-bottom: 20px;
     font-weight: 700;
 }
 .section2 .section-heading {
@@ -287,7 +307,7 @@
 
 .section2 .lead3 {
     margin-bottom: 0px;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 25px;
     color: #008cee;
     line-height: 1.46428571;
@@ -343,10 +363,77 @@ margin-top: -150px;
 
 .section3 .lead3 {
     margin-bottom: 0px;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 25px;
     color: #fff;
     line-height: 1.46428571;
 }
 
 
+.relationship-bg
+{
+
+
+
+    z-index: 0;
+    width:100%;
+    height: 1060px;
+    background: #666 url(http://7xldgj.com1.z0.glb.clouddn.com/ubangweb/img/relationship-bg.png) center no-repeat;
+    background-size: 1920px 1060px;
+    position:absolute;
+    /*
+    width: 100%;
+    height: 480px;
+    background: #666 url(https://zos.alipayobjects.com/rmsportal/IDHuFFxBkTsblHP.png) center 55px no-repeat;
+    background-size: 1920px 480px;
+    position: relative;
+    margin-top: -80px;
+    */
+
+}
+.relationship-content
+{
+    width: 100%;
+   
+}
+.section-relationship 
+{
+
+}
+
+#outerDiv
+{
+    width: 920px;
+    /*margin: 70px auto;*/
+    height: 920px;
+    border-radius:460px;
+    position: relative;
+
+    float: left;
+    margin-right: 100px;
+    margin-left: 300px;
+    margin-top: 60px;
+
+
+}
+#friend
+{
+    width: 920px;
+    height: 920px;
+}
+
+#spec
+{
+padding-top: 100px;
+}
+
+#spec p
+{
+    font-size: 30px;
+}
+#mine p
+{
+    text-align:center;
+    font-size: 30px;
+    padding-top: 20px;
+}

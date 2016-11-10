@@ -9,9 +9,6 @@
                 用户登录
             </div>
         
-            <?php $form = ActiveForm::begin([
-                                'id' => 'login-form',
-                          ]); ?>
 
             <form action="/index.php?r=login/login" method="post" id="J_Form">
             <div id="J_Message" style="display:none;" class="login-msg error">
