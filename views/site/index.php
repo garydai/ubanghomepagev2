@@ -3,23 +3,44 @@
     <div id="fwslider">
         <div class="slider_container">
                     <div class="slide"> 
-                <div class="slide_shade"></div>
-                <div class="slide_loading"></div>
+                <!--div class="slide_shade"></div-->
+                <!--div class="slide_loading"></div-->
                 <!-- Slide image -->
                
                 <!-- /Slide image -->
                 <!-- Texts container -->
-                <div class="slide_content">
-                    <div class="slide_content_wrap">
+                            <div class="introduce">
+                                <div class="room">
+                                    <div class="spec">
+                                        
+                                    </div>
+                                    <div class="downloadbtn">
+                                            <a class="download1">
+                                                <img src="/img/iPhoneDownload.png">
+                                            </a>
+                                            <a class="download1">
+                                                <img src="/img/androidDownload.png">
+                                            </a>
+
+                                        </div>
+
+                                </div>
+                                <div class="qr">
+                                
+                                
+                                </div>
+                            </div>
+
+                    <!--div class="slide_content_wrap"-->
                         <!-- Text title -->
                        
                         <!-- /Text title -->
-                         <img class="image" style="width:196px; height:196px;"  src="/img/qr.png" >
+                         <!--img class="image" style="width:196px; height:196px;"  src="/img/qr.png" -->
                         <!-- Text description -->
                        
                         <!-- /Text description -->
-                    </div>
-                </div>
+                    
+                
                  <!-- /Texts container -->
             </div>
                     
@@ -39,25 +60,25 @@
         -->
             <div class="row">
                     <div class="col-sm-3   text-center" style="visibility: visible;">
-                        <img class="rotate" src="img/economic.png" height="115" width="100" alt="Generic placeholder image">
+                        <img class="rotate" src="img/economic.png" height="110" width="110" alt="Generic placeholder image">
                         <div class="first">共享经济 </div>
                         <div class="lead">熟人间的劳务，资源共享平台</div>
                          
                     </div> 
                     <div class="col-sm-3 text-center " style="visibility: visible;">
-                        <img class="rotate" src="img/connect.png" height="115" width="100" alt="Generic placeholder image">
+                        <img class="rotate" src="img/connect.png" height="110" width="110" alt="Generic placeholder image">
                         <div class="first">商务对接 </div>
                         <p class="lead">互联网商务对接、业务对接、资源对接、提供专业的人脉机会服务</p>
                          
                     </div> 
                     <div class="col-sm-3  text-center " style="visibility: visible;">
-                        <img class="rotate" src="img/achieve.png" height="115" width="100" alt="Generic placeholder image">
+                        <img class="rotate" src="img/achieve.png" height="110" width="110" alt="Generic placeholder image">
                         <div class="first">成就自己 </div>
                         <p class="lead">扩展人脉关系、好友评价增强个人魅力与信任</p>
                     </div> 
                     
                      <div class="col-sm-3 text-center " style="visibility: visible;">
-                        <img class="rotate" src="img/selfbrand.png" height="115" width="100" alt="Generic placeholder image">
+                        <img class="rotate" src="img/selfbrand.png" height="110" width="110" alt="Generic placeholder image">
                         <div class="first">个人品牌 </div>
                         <p class="lead">专注于个体商户的展现和传播，为个体创造提供服务</p>
                     </div> 
@@ -69,15 +90,13 @@
         <div class="container">
             <div class="row">
                  <div class="section2-text col-sm-7" style="visibility: visible;">
-                    <strong class="section-heading">一键帮你搞定</strong>
-                    <div class="sub-title lead3">求助/助人/提问</div>
+                    <div class="section-heading">一键搞定</div>
+                    <div class="sub-title lead2">求助/助人/提问</div>
                     <p class="lead3">
                             
-                            求助：遇到难题了，别担心。一键发布，自有高人为你解决。
-                            <br>
-                            助人：发布资源、渠道，说不定“一不小心”就帮了一个大忙。助人、吸金两不误。
-                            <br>
-                            问答：有疑问，就来这里找答案吧。找不到，就大胆提，一定会有高质量的答案。不求其他，只求靠谱。
+                            难题或问或解决，资源亦优亦助人
+                            <br>一键，就是极致的快捷
+                           
                     </p>
                 </div>  
 
@@ -97,10 +116,10 @@
                 </div>
 
                  <div class="section3-text col-sm-7"  style="visibility: visible;">
-                    <strong class="section-heading">一键帮你搞定</strong>
-                    <div class="sub-title lead3">求助/助人/提问</div>
+                    <div class="section-heading">人脉关系</div>
+                    <div class="sub-title lead2">一度好友/二度人脉</div>
                     <p class="lead3">
-                        通过“信任”、“关系网”，友帮正在形成一种新的消费模式，用户无需再担心隔着一块屏幕的另一方的可信度，不必在各个环节时刻警惕，真正做到“轻松消费”、“安全消费”。
+                        好友关系最靠谱，消费轻松又安全<br>人脉，就是最好的盾牌
                     </p>
                 </div>  
 
@@ -114,12 +133,12 @@
         <div class="container">
             <div class="row">
                  <div class="section2-text col-sm-7" style="visibility: visible;">
-                    <strong class="section-heading">口碑</strong>
-                    
+                    <div class="section-heading">口碑</div>
+                    <div class="sub-title lead2">个人评价/好友评价/交易评价</div>
                     <p class="lead3">
-                            多重评价，让评价更加客观。
-
+                            畅所欲言你我他，多维评价更通达<br>口碑，就是信任的标尺
                     </p>
+                    
                 </div>  
 
                 <div class="col-sm-4 " style="visibility: visible;">

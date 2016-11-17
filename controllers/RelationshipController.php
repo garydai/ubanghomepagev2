@@ -63,29 +63,14 @@ class RelationshipController extends Controller
 
         if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
              
-          //  echo 'end';
-           // var_dump(Yii::$app->user);
-           // echo !\Yii::$app->user->isGuest;
+
              $this->redirect(array('site/index'));
          } else {
          //   echo 'end';
            $this->redirect(array('login/index'));
             //echo 12;
         }
-
-        /*
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) ) {
-            $id = $model->login();
-            if($id != 0)
-                return $this->render('index', ['userId'=>$id]);
-        }
-      //  var_dump($model);
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-*/
-       
+ 
     }
 
     public function actionFriend()

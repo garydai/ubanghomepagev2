@@ -43,11 +43,12 @@ AppAsset::register($this);
                     <span class="menu_hover"></span>
                     <a href="/index.php?r=contact">关于友帮</a>
                 </li>
-                <li <?php if(strpos( Yii::$app->request->getUrl(), 'login') !== false) echo 'class=" current"';?>>
-                    <span class="menu_hover"></span>
-                    <?php if(!Yii::$app->user->isGuest) echo  '<a href="/index.php?r=login/logout">登出</a>'; else echo '<a href="/index.php?r=login/login">登录</a>'; ?>
-                </li>
+                
             </ul>
+            <div class="login" >
+                    
+                    <?php if(!Yii::$app->user->isGuest) echo  '<a href="/index.php?r=login/logout">登出</a>'; else echo '<a href="/index.php?r=login/login"><img src="../img/login.png"></a>'; ?>
+            </div>
         </div>
     </div>
 </header>

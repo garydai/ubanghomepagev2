@@ -47,11 +47,14 @@
                 var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
                 var mx = e.pageX || e.clientX + scrollX;
                 var my = e.pageY || e.clientY + scrollY;
-              //  console.log(mx);
-               // console.log(my);
+               // console.log(mx);
+                //console.log(my);
               //  console.log(mx, my);
+             //   console.log('right_ccount' + right_c.length);
+
                 for(var i = 0; i < right_c.length; i ++)
                 {
+                    console.log('right'+right_o[i]);
                     var x = $("#m"+right_o[i]).offset().left + 80;
                     var y = $("#m"+right_o[i]).offset().top + 80;
                   //  $("#m"+left_o[0]).css("left", x);
@@ -64,6 +67,7 @@
                 }
                 for(var i = 0; i < left_c.length; i ++)
                 {
+                    console.log('left'+left_o[i]);
                     var x = $("#m"+left_o[i]).offset().left + 80;
                     var y = $("#m"+left_o[i]).offset().top + 80;
 
@@ -125,6 +129,7 @@
                 var origin_right_c = new Array();
                 var origin_left_c = new Array();
                 var overlap = 0;
+              //  console.log('count:' + count);
                 if(count > 10)
                 {
 
@@ -177,6 +182,7 @@
                         //$("#m"+i).offset({top:0, left:0});
                         right_o.push(i);
                         right_c.push(delt *(i - 1));
+                        console.log('right_c' + i);
 
                     }
                 }
@@ -200,14 +206,15 @@
                 $('#outerDiv').dblclick(function(event) {
 
                      // alert('Handler for .dblclick() called.');
+
                     var index = hit(event, right_c, right_o, left_c, left_o);
-                  // console.log('test');
+                    console.log(index);
                     if(index != -1)
                     {
                         if(overlap == 1)
                         {
-                            if(index >3)
-                                return ;
+                    //        if(index >3)
+                      //          return ;
                         }
                         if(index != 0)
                         {
@@ -231,6 +238,11 @@
                      
 
                 }); 
+
+                $('#outerDiv').unbind('mousedown').click(function () {
+
+                });
+
                 //点击事件
                 $("#outerDiv").mousedown(function(event){
 
@@ -277,6 +289,10 @@
                     //计算当前点击的点与圆心(150,150)的X轴的夹角(弧度) --> 上半圆为负(0 ~ -180), 下半圆未正[0 ~ 180]
                     preAngle = Math.atan2(preY - cy, preX - cx);
 
+                    $('#html').unbind('mousemove').click(function () {
+
+                    });
+
                     //preAngle += Math.PI * 2;
                     //移动事件
                     $("html").mousemove(function(event){
@@ -295,10 +311,11 @@
                             anti = 1;
                         else if(transferAngle > 0)
                             anti = 0;
-                        a = (transferAngle * 180 / Math.PI)/10;
+                        a = (transferAngle * 180 / Math.PI)/20;
                         b = a * 4.0 / 9.0;
                         var antiCross = 0;
                         var clockwiseCross = 0;
+
                         //$('#outerDiv').rotate(a);
                         if(Math.cos(right_c[right_c.length - 1]) * Math.cos(right_c[right_c.length - 1] + a) < 0 && Math.sin(right_c[right_c.length - 1] < 0))
                         {
@@ -328,18 +345,13 @@
                         //  console.log(left_c[i], Math.cos(left_c[i]),  Math.sin(left_c[i]));
                             var x = parseInt( (Math.cos( left_c[i] + b) *  len ) + or - mWidth/2 );
                             var y = parseInt( (Math.sin( left_c[i] + b) *  len ) + or - mWidth/2 );
-                            if(anti == 1 && i == left_o.length - 1 && Math.cos(left_c[i]) >= 0 && Math.sin(left_c[i]) >=0 )
+                            if(i == left_o.length - 1 || i == 0)
                             {
-                                x = parseInt( (Math.cos( left_c[i] + a) *  len ) + or - mWidth/2 );
-                                y = parseInt( (Math.sin( left_c[i] + a) *  len ) + or - mWidth/2 ); 
-                                left_c[i] += a;
-                            }
-                            else if(anti == 0 && i == 0 && Math.cos(left_c[i]) >= 0 && Math.sin(left_c[i]) <=0)
-                            {
-                                
-                                x = parseInt( (Math.cos( left_c[i] + a) * len ) + or - mWidth/2 );
-                                y = parseInt( (Math.sin( left_c[i] + a) * len ) + or - mWidth/2 ); 
-                                left_c[i] += a;                         
+                                //在第一象限
+                                if(Math.cos(left_c[i]) >= 0)
+                                    left_c[i] += a;
+                                else 
+                                    left_c[i] += b;
                             }
                             else 
                                 left_c[i] += b;
