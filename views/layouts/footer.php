@@ -36,6 +36,8 @@ $(function()
         $(".bottom_banner").hide(); 
     }else{
         $(".bottom_banner").show();
+        $(".introduce").hide();
+        $(".qr").hide();
 //window.location.href="http://wap.baidu.com";
     }
 });

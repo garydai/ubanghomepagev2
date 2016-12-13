@@ -31,7 +31,7 @@
             
             <div class="checkbox">
                 <label>
-                  <input type="checkbox">记住我
+                  <input type="checkbox" name="rememberMe" value="1">记住我
                 </label>
             </div>
             

@@ -35,17 +35,39 @@ ul.blockeasing{
 .login
 {
 	float: right;
-	margin-top:26px;
+	margin-top:30px;
+	font-size: 16px;
+	/*color: #191919;*/
+}
+.login a
+{
+	/*color: #191919;*/
+	padding-left: 10px;
+}
+.login a:hover {
+	
+	color:#008cee;
+}
+
+.login a img
+{
+	margin-top: -4px;
 }
 ul.blockeasing li{
 	float:left;
 	text-align:center;
 	position:relative;
+	padding-left: 15px;
 }
 
 ul.blockeasing li.current{
 	
 
+}
+
+ul.blockeasing li.first{
+	
+	padding-left: 50px;
 }
 
 ul.blockeasing li.current a{

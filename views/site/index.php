@@ -15,10 +15,10 @@
                                         
                                     </div>
                                     <div class="downloadbtn">
-                                            <a class="download1">
+                                            <a class="download1" href="https://itunes.apple.com/app/id1125870151">
                                                 <img src="/img/iPhoneDownload.png">
                                             </a>
-                                            <a class="download1">
+                                            <a class="download1" href="http://7xldgj.com1.z0.glb.clouddn.com/app-debug.apk">
                                                 <img src="/img/androidDownload.png">
                                             </a>
 

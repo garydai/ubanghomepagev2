@@ -1,4 +1,4 @@
-<div class="relationship-content" ondragstart="return false;" ondrop="return false;">
+<div class="relationship-content" ondragstart="return false;" ondrop="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
 
     <div class="relationship-bg"> 
 
@@ -14,10 +14,10 @@
         -->
         <div id="relationship" class="section-relationship ">
        
-            <div id="outerDiv">
+            <div id="outerDiv" >
                 <div id="friend">                   
                 </div>           
-                <div id = "mine" style="width: 240px;height: 240px;position: absolute;left:340px;top:340px;">
+                <div class = "mine test" style="width: 200px;height: 200px;position: absolute;left:360px;top:360px;">
                 </div>
                
             </div>
@@ -26,6 +26,9 @@
         </div>
          <div id="spec">
         </div> 
+
+        <div id='center' style="visibility:hidden;">
+        </div>
         <script type="text/javascript">
 
             
@@ -40,23 +43,20 @@
               //  my = e.screenY;
                 var or = 460;
                 var len = 380;
-                var r1 = 80;
-                var r2 = 120;
+                var r1 = 65;
+                var r2 = 100;
                 var e = ev || window.event;
                 var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
                 var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
                 var mx = e.pageX || e.clientX + scrollX;
                 var my = e.pageY || e.clientY + scrollY;
-               // console.log(mx);
-                //console.log(my);
-              //  console.log(mx, my);
-             //   console.log('right_ccount' + right_c.length);
-
+        
+                
                 for(var i = 0; i < right_c.length; i ++)
                 {
-                    console.log('right'+right_o[i]);
-                    var x = $("#m"+right_o[i]).offset().left + 80;
-                    var y = $("#m"+right_o[i]).offset().top + 80;
+                   // console.log('right'+right_o[i]);
+                    var x = $(".m"+right_o[i]).offset().left + 80;
+                    var y = $(".m"+right_o[i]).offset().top + 80;
                   //  $("#m"+left_o[0]).css("left", x);
                    // var x = (Math.cos( right_c[i] ) *  len ) + or ;//Math.cos( right_c[i]);
                    // var y = (Math.sin( right_c[i] ) * len ) + or;//Math.sin( right_c[i]);
@@ -65,11 +65,11 @@
                         return right_o[i];
                 
                 }
-                for(var i = 0; i < left_c.length; i ++)
+                for(var i = left_c.length -1; i >= 0; i --)
                 {
-                    console.log('left'+left_o[i]);
-                    var x = $("#m"+left_o[i]).offset().left + 80;
-                    var y = $("#m"+left_o[i]).offset().top + 80;
+                    //console.log('left'+left_o[i]);
+                    var x = $(".m"+left_o[i]).offset().left + 80;
+                    var y = $(".m"+left_o[i]).offset().top + 80;
 
                   //  var x = (Math.cos( left_c[i] ) * len ) + or;//Math.cos( right_c[i]);
                    // var y = (Math.sin( left_c[i] ) *  len ) + or;//Math.sin( right_c[i]);
@@ -78,8 +78,8 @@
                         return left_o[i];
                 
                 }
-                var xx = $("#m0").offset().left + 120;
-                var yy = $("#m0").offset().top + 120;
+                var xx = $(".m0").offset().left + 100;
+                var yy = $(".m0").offset().top + 100;
                 if(Math.pow(mx - xx, 2) + Math.pow(my - yy, 2) <= Math.pow(r2, 2)) 
                         return 0;
                 return -1;
@@ -91,15 +91,18 @@
               //  console.log(result);
                 var data = result.data;
                 var user = result.user;
+
+                $("#center").html(user.Id);
+
                 $("#friend").children().remove();
-                $("#mine").children().remove();
+                $(".mine").children().remove();
                 for(var i = 0; i < data.length; i ++)
                 {
                     if(!data[i].hasOwnProperty('Avatar'))
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
                     else 
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + data[i].Avatar;
-                    $("#friend").append('<div id="m' + (i+1)  + '" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 80px;"></div>');
+                    $("#friend").append('<div class="m' + (i+1)  + ' animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 80px;"></div>');
                     
                 }
 
@@ -108,8 +111,8 @@
                     else 
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
 
-                $("#mine").append('<div id="m0" style="position: relative; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 120px; width:240px;height:240px;"></div>');
-                $("#mine").append("<p>" +user.Name + "</p>")
+                $(".mine").append('<div class="m0 animate" style="position: relative; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 100px; width:200px;height:200px;"></div>');
+                $(".mine").append("<p>" +user.Name + "</p>")
                // console.log('<div id="m0" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 54px; width:108px;height:108px;top:246px;left:246px"></div>');
                 $("#spec").html("<p>昵称：" +user.Name + "</p>");
                 $("#spec").append("<p>手机号码：" +user.Mobile + "</p>");
@@ -117,8 +120,8 @@
 
                 var or = 460;
                 var ir = 100;
-                var mWidth = 160;
-                var len = 380;
+                var mWidth = 130;
+                var len = 295;
                 var mDLen = Math.sqrt(2 * Math.pow(mWidth,2));
                 var count = data.length;
                 var delt = Math.PI * 2 / count;
@@ -138,10 +141,10 @@
                         delt = Math.PI / 4;
                         var x = parseInt( (Math.cos( delt *(2 - i) ) * len) + or - mWidth/2 );
                         var y = parseInt( (Math.sin(  delt *(2 - i) ) *  len) + or - mWidth/2 );
-                        $("#m"+i).width(mWidth);
-                        $("#m"+i).height(mWidth);
-                         $("#m"+i).css("left", x);
-                        $("#m"+i).css("top", y);
+                        $(".m"+i).width(mWidth);
+                        $(".m"+i).height(mWidth);
+                         $(".m"+i).css("left", x);
+                        $(".m"+i).css("top", y);
                       //  $("#m"+i).offset({top:y, left:x});
                         right_o.push(i);
                         right_c.push( delt *(2 - i));
@@ -152,10 +155,10 @@
                         delt = Math.PI /(count-3 - 1);
                         var x = parseInt( (Math.cos( -Math.PI/2 - delt * (i - 4) ) *  len ) + or - mWidth/2 );
                         var y = parseInt( (Math.sin( -Math.PI/2 - delt * (i - 4) ) *  len ) + or - mWidth/2 );
-                        $("#m"+i).width(mWidth);
-                        $("#m"+i).height(mWidth);
-                         $("#m"+i).css("left", x);
-                        $("#m"+i).css("top", y);
+                        $(".m"+i).width(mWidth);
+                        $(".m"+i).height(mWidth);
+                         $(".m"+i).css("left", x);
+                        $(".m"+i).css("top", y);
                       //  $("#m"+i).offset({top:y, left:x});
                         left_o.push(i);
                         left_c.push(-Math.PI/2 - delt * (i - 4));
@@ -173,10 +176,10 @@
                         var x = parseInt( (Math.cos( delt *(i - 1) ) * len )  - mWidth/2  + or);
                         var y = parseInt( (Math.sin(  delt *(i - 1) ) * len )  - mWidth/2  + or);
                        
-                        $("#m"+i).width(mWidth);
-                        $("#m"+i).height(mWidth);
-                        $("#m"+i).css("left", x);
-                        $("#m"+i).css("top", y);
+                        $(".m"+i).width(mWidth);
+                        $(".m"+i).height(mWidth);
+                        $(".m"+i).css("left", x);
+                        $(".m"+i).css("top", y);
                       //  $("#m"+i).position.top = y;
                        // $("#m"+i).position.left = x;
                         //$("#m"+i).offset({top:0, left:0});
@@ -206,9 +209,10 @@
                 $('#outerDiv').dblclick(function(event) {
 
                      // alert('Handler for .dblclick() called.');
-
+                    if($("#center").html() != <?php echo $userId?>)
+                        return ;
                     var index = hit(event, right_c, right_o, left_c, left_o);
-                    console.log(index);
+                   // console.log(index);
                     if(index != -1)
                     {
                         if(overlap == 1)
@@ -251,8 +255,8 @@
 
                     preX = event.clientX;
                     preY = event.clientY;
-                    var cx = $("#m0").offset().left + 120;
-                    var cy = $("#m0").offset().top + 120;
+                    var cx = $(".m0").offset().left + 100;
+                    var cy = $(".m0").offset().top + 100;
                    var index = hit(event, right_c, right_o, left_c, left_o);
 
                    if(index != -1)
@@ -311,7 +315,7 @@
                             anti = 1;
                         else if(transferAngle > 0)
                             anti = 0;
-                        a = (transferAngle * 180 / Math.PI)/20;
+                        a = (transferAngle * 180 / Math.PI)/100;
                         b = a * 4.0 / 9.0;
                         var antiCross = 0;
                         var clockwiseCross = 0;
@@ -332,8 +336,8 @@
                             var x = parseInt( (Math.cos( right_c[i] + a) *  len ) + or - mWidth/2 );
                             var y = parseInt( (Math.sin( right_c[i] + a) *  len ) + or - mWidth/2 );
                            // $("#m"+right_o[i]).offset( {top:y,left:x} );
-                            $("#m"+right_o[i]).css("left", x);
-                            $("#m"+right_o[i]).css("top", y);
+                            $(".m"+right_o[i]).css("left", x);
+                            $(".m"+right_o[i]).css("top", y);
 
                             right_c[i] += a;
                         }
@@ -357,8 +361,8 @@
                                 left_c[i] += b;
                             //left_c[i] -= Math.PI / 8;
                                // $("#m"+left_o[i]).offset( {top:y,left:x} );
-                                $("#m"+left_o[i]).css("left", x);
-                                $("#m"+left_o[i]).css("top", y);
+                                $(".m"+left_o[i]).css("left", x);
+                                $(".m"+left_o[i]).css("top", y);
                         }
 
                         if(overlap == 1)
@@ -375,8 +379,8 @@
                                 x = parseInt( (Math.cos( right_c[i] ) *  len ) + or - mWidth/2 );
                                 y = parseInt( (Math.sin( right_c[i] ) *  len ) + or - mWidth/2 );   
                                 //$("#m"+right_o[i]).offset({top:y,left:x});
-                                $("#m"+right_o[i]).css("left", x);
-                                $("#m"+right_o[i]).css("top", y);
+                                $(".m"+right_o[i]).css("left", x);
+                                $(".m"+right_o[i]).css("top", y);
                             }
                             var tmp_left_o = left_o[left_o.length - 1];
                             var tmp_left_c = left_c[left_o.length - 1];
@@ -387,23 +391,23 @@
                                 x = parseInt( (Math.cos( left_c[i] ) *  len ) + or - mWidth/2 );
                                 y = parseInt( (Math.sin( left_c[i] ) *  len ) + or - mWidth/2 );    
                                // $("#m"+left_o[i]).offset({top:y,left:x});
-                                $("#m"+left_o[i]).css("left", x);
-                                $("#m"+left_o[i]).css("top", y);
+                                $(".m"+left_o[i]).css("left", x);
+                                $(".m"+left_o[i]).css("top", y);
                             }
                             left_o[0] = tmp_right_o;
                             left_c[0] = origin_left_c[0];
                             x = parseInt( (Math.cos( left_c[0] ) * len ) + or - mWidth/2 );
                             y = parseInt( (Math.sin( left_c[0] ) * len ) + or - mWidth/2 );    
                          //   $("#m"+left_o[0]).offset({top:y,left:x});
-                            $("#m"+left_o[0]).css("left", x);
-                            $("#m"+left_o[0]).css("top", y);
+                            $(".m"+left_o[0]).css("left", x);
+                            $(".m"+left_o[0]).css("top", y);
                             right_o[0] = tmp_left_o;
                             right_c[0] = origin_right_c[0];
                             x = parseInt( (Math.cos( right_c[0] ) * len ) + or - mWidth/2 );
                             y = parseInt( (Math.sin( right_c[0] ) *  len ) + or - mWidth/2 );   
                             //$("#m"+right_o[i]).offset({top:y,left:x});
-                            $("#m"+right_o[i]).css("left", x);
-                            $("#m"+right_o[i]).css("top", y);
+                            $(".m"+right_o[i]).css("left", x);
+                            $(".m"+right_o[i]).css("top", y);
                         }
                         else if(clockwiseCross == 1 )
                         {
@@ -416,8 +420,8 @@
                                 x = parseInt( (Math.cos( right_c[i] ) *  len) + or - mWidth/2 );
                                 y = parseInt( (Math.sin( right_c[i] ) *  len ) + or - mWidth/2 );   
                               //  $("#m"+right_o[i]).offset({top:y,left:x});
-                                $("#m"+right_o[i]).css("left", x);
-                                $("#m"+right_o[i]).css("top", y);
+                                $(".m"+right_o[i]).css("left", x);
+                                $(".m"+right_o[i]).css("top", y);
                             }
                             var tmp_left_o = left_o[0];
                             var tmp_left_c = left_c[0];
@@ -428,24 +432,24 @@
                                 x = parseInt( (Math.cos( left_c[i] ) *  len ) + or - mWidth/2 );
                                 y = parseInt( (Math.sin( left_c[i] ) *  len ) + or - mWidth/2 );    
                               // $("#m"+left_o[i]).offset({top:y,left:x});
-                                $("#m"+left_o[i]).css("left", x);
-                                $("#m"+left_o[i]).css("top", y);
+                                $(".m"+left_o[i]).css("left", x);
+                                $(".m"+left_o[i]).css("top", y);
                             }
                             left_o[left_o.length - 1] = tmp_right_o;
                             left_c[left_o.length - 1] = origin_left_c[left_o.length - 1];
                             x = parseInt( (Math.cos( left_c[left_o.length - 1] ) *  len ) + or - mWidth/2 );
                             y = parseInt( (Math.sin( left_c[left_o.length - 1] ) *  len) + or - mWidth/2 );    
                            // $("#m"+left_o[left_o.length - 1]).offset({top:y,left:x});
-                            $("#m"+left_o[left_o.length - 1]).css("left", x);
-                            $("#m"+left_o[left_o.length - 1]).css("top", y);
+                            $(".m"+left_o[left_o.length - 1]).css("left", x);
+                            $(".m"+left_o[left_o.length - 1]).css("top", y);
 
                             right_o[right_o.length - 1] = tmp_left_o;
                             right_c[right_o.length - 1] = origin_right_c[right_o.length - 1];
                             x = parseInt( (Math.cos( right_c[right_o.length - 1] ) * len ) + or - mWidth/2 );
                             y = parseInt( (Math.sin( right_c[right_o.length - 1] ) * len ) + or - mWidth/2 );  
                             //$("#m"+right_o[right_o.length - 1]).offset({top:y,left:x});
-                            $("#m"+right_o[right_o.length - 1]).css("left", x);
-                            $("#m"+right_o[right_o.length - 1]).css("top", y);
+                            $(".m"+right_o[right_o.length - 1]).css("left", x);
+                            $(".m"+right_o[right_o.length - 1]).css("top", y);
                             a = 0;
                             b = 0;
                             

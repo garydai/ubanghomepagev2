@@ -93,14 +93,14 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+        return $this->AuthToken;
     }
     /**
      * @inheritdoc
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+        return $this->AuthToken === $authKey;
     }
     /**
      * Validates password

@@ -4,7 +4,7 @@
 <div id="contact" class="contact-layout clearfix">
 
 	<div class="contact-center">
-		<li>
+		<li class="location"> 
                 <p class="contactTitle">
                     联系我们：
                 </p>

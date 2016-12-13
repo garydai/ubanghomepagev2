@@ -58,18 +58,24 @@ class RelationshipController extends Controller
                 return $this->render('index', ['userId'=>$id]);
 
         }
-        $model = new LoginForm(); 
+
+       // $model = new LoginForm(); 
        // var_dump(Yii::$app->request->post());
 
-        if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
+        //if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
              
-
-             $this->redirect(array('site/index'));
-         } else {
+          //  $id = Yii::$app->user->identity->attributes['Id'];
+          ///  if($id != 0)
+             //   return $this->render('index', ['userId'=>$id]);
+            //else 
+              //  $this->redirect(array('site/index'));
+         //} else {
          //   echo 'end';
-           $this->redirect(array('login/index'));
+        $session = Yii::$app->session;
+        $session['ubangwangrelationship'] = 1;
+        $this->redirect(array('login/index'));
             //echo 12;
-        }
+       // }
  
     }
 

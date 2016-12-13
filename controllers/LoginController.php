@@ -52,6 +52,7 @@ class LoginController extends Controller
 
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
+
         }
 
         return $this->render('index', []);
@@ -66,25 +67,23 @@ class LoginController extends Controller
     public function actionLogin()
     {
 
+      //  return ;
         if (!\Yii::$app->user->isGuest) {
-            //echo 121212;
-            //return ;
-              return $this->goHome();
+
+            return $this->goHome();
         }
-      //  echo \Yii::$app->user->isGuest;
         $model = new LoginForm(); 
-       // var_dump(Yii::$app->request->post());
 
         if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
-             
-          //  echo 'end';
-           // var_dump(Yii::$app->user);
-           // echo !\Yii::$app->user->isGuest;
-             $this->redirect(array('site/index'));
+            $session = Yii::$app->session;
+            if(isset($session['ubangwangrelationship']))
+            {
+                unset($session['ubangwangrelationship']);
+                $this->redirect('/index.php?r=relationship/index');
+            }
+            else return $this->goHome();
          } else {
-         //   echo 'end';
             return $this->render('index', []);
-            //echo 12;
         }
 
         return ;

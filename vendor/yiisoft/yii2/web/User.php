@@ -235,6 +235,8 @@ class User extends Component
      */
     public function login(IdentityInterface $identity, $duration = 0)
     {
+        //echo $duration;
+        //return ;
         if ($this->beforeLogin($identity, false, $duration)) {
             $this->switchIdentity($identity, $duration);
             $id = $identity->getId();

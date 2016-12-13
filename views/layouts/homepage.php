@@ -23,13 +23,13 @@ AppAsset::register($this);
 <header class="header">
     <div class="menu clear">
         <a class="logo" href="/">
-            <img src="/img/brand.png"  alt="logo"/>
+            <img src="/img/brand.png" width="164" height="50" alt="logo"/>
         </a>
         <i class="menu_mobile" onclick="menu_mobile_switch(this);"></i>
         <div class="blockeasing-warpp">
             <ul class="blockeasing">
             
-                <li <?php if( strpos( Yii::$app->request->getUrl(), 'site' ) !== false || Yii::$app->request->getUrl() == "/") echo 'class=" current"';?> >
+                <li <?php if( Yii::$app->request->getUrl() == "/index.php"  || strpos( Yii::$app->request->getUrl(), 'site' ) !== false || Yii::$app->request->getUrl() == "/") echo 'class=" current first"'; else echo 'class="first"'?> >
                     <span class="menu_hover"></span>
                     <a href="/">首页</a>
                 </li>
@@ -47,8 +47,9 @@ AppAsset::register($this);
             </ul>
             <div class="login" >
                     
-                    <?php if(!Yii::$app->user->isGuest) echo  '<a href="/index.php?r=login/logout">登出</a>'; else echo '<a href="/index.php?r=login/login"><img src="../img/login.png"></a>'; ?>
+                    <?php if(!Yii::$app->user->isGuest) echo  Yii::$app->user->identity->attributes['Name'].'<a href="/index.php?r=login/logout">登出</a>'; else echo '<a href="/index.php?r=login/index"><img src="../img/login.png"></a>'; ?>
             </div>
+
         </div>
     </div>
 </header>

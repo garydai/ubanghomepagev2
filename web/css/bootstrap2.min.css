@@ -1365,7 +1365,7 @@ button,input,select,textarea {
 }
 
 a {
-	color: #337ab7;
+	/*color: #337ab7;*/
 	text-decoration: none
 }
 
@@ -3006,8 +3006,8 @@ input[type=search] {
 .checkbox,.radio {
 	position: relative;
 	display: block;
-	margin-top: 10px;
-	margin-bottom: 10px
+	margin-top: 20px;
+	margin-bottom: 20px
 }
 
 .checkbox label,.radio label {
