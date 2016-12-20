@@ -1,3 +1,8 @@
+<link href="css/spinners.css" rel="stylesheet">
+<div class="cover" style="position:absolute;">
+    <div class="dots-loader"></div>
+
+</div>
 <div class="relationship-content" ondragstart="return false;" ondrop="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
 
     <div class="relationship-bg"> 
@@ -21,13 +26,60 @@
                 </div>
                
             </div>
-       
+            <div class="userinfo-bg">
+                
+            </div> 
+
+            <div class="userinfo-spec">
+            <div class="title">昵称：
+                <div class="name"></div>
+            </div>
+            <div class="gender">性别：</div>
+            <div class="relationship">关系：一度好友</div>
+            
+            </div>
+            <div class="userinfo-order">
+                <div class="boss" onclick="sclick(0)"><div class="title">Ta的求助</div><img class="arrow" src="img/relationship-arrow.png"></div>
+                <div class="worker" onclick="sclick(1)"><div class="title">Ta的助人</div><img class="arrow" src="img/relationship-arrow.png"></div>
+                <div class="qna" onclick="sclick(2)"><div class="title">Ta的提问</div><img class="arrow" src="img/relationship-arrow.png"></div>
+                
+            </div>
+            <div class="orderlist">
+                <ul class="order list-unstyled board">
+                    <!-->
+                    <li class="row">
+                        <p>
+                            <span  class="ordertitle"></span>12
+                            <span class="orderreward">12</span>
+                        
+                            
+                        </p> 
+                    </li>
+                    
+
+                    -->
+                </ul>
+                
+            </div>
+            <div id="listpage"></div>
+            <div class="goback" onclick="back()"></div>
+
   
         </div>
-         <div id="spec">
-        </div> 
+         
+        
 
         <div id='center' style="visibility:hidden;">
+        </div>
+        <div id='selectid' style="visibility:hidden;"><?php echo $userId?></div>
+        <div id='selectindex' style="visibility:hidden;">0</div>
+        <div id='totalpage' style="visibility:hidden;">1
+        </div>
+        <div id='curpage' style="visibility:hidden;">1
+        </div>
+        <div id='selecttype' style="visibility:hidden;">0
+        </div>
+        <div id='mouseleft' style="visibility:hidden;">0
         </div>
         <script type="text/javascript">
 
@@ -102,7 +154,8 @@
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
                     else 
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + data[i].Avatar;
-                    $("#friend").append('<div class="m' + (i+1)  + ' animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 80px;"></div>');
+                    $("#friend").append('<div class="group"><div class="m' + (i+1)  + ' animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; width:130px;height:130px;border-radius: 65px;"></div><div class="m' + (i+1)  + ' '+ 'm' + (i+1)  +'mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:140px;height:140px;border-radius: 70px;margin-top: -5px;margin-left: -5px; z-index:-1"></div></div>');
+                   // $("#friend").append('<div class="m' + (i+1)  + ' '+ 'm' + (i+1)  +'mask animate" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:140px;height:140px;border-radius: 70px;margin-top: -5px;margin-left: -5px;"></div>');
                     
                 }
 
@@ -111,12 +164,54 @@
                     else 
                         var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
 
-                $(".mine").append('<div class="m0 animate" style="position: relative; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 100px; width:200px;height:200px;"></div>');
+                $(".mine").append('<div class="m0bg" style="position: absolute; background-image: url(img/rotate.png);background-size: 100% 100%; background-repeat: no-repeat; width:359px;height:350px;margin-top: -78px;margin-left: -80px;z-index:-100"></div><div class="group"><div class="m0 animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 100px; width:200px;height:200px;"></div><div class="m0' + ' '+ 'm0mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:210px;height:210px;border-radius: 105px;margin-top: -5px;margin-left: -5px;z-index:-1"></div></div>');
                 $(".mine").append("<p>" +user.Name + "</p>")
+
                // console.log('<div id="m0" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 54px; width:108px;height:108px;top:246px;left:246px"></div>');
-                $("#spec").html("<p>昵称：" +user.Name + "</p>");
-                $("#spec").append("<p>手机号码：" +user.Mobile + "</p>");
+               // $("#spec").html("<p>昵称：" +user.Name + "</p>");
+               // $("#spec").append("<p>手机号码：" +user.Mobile + "</p>");
+                $(".group").children().css("z-index", 0);
+                $(".m"+$("#selectindex").html() + "mask").css("z-index", -10);
                 
+                $('.group').unbind("mouseenter").unbind("mouseleave");
+
+                $(".group").hover(function(){
+                    
+                    if( $("#mouseleft").html() == 1)
+                        return ;
+                    console.log('test');
+                   // $(this).parent().children(".mask").addClass("a");
+                    if($(this).children(".mask").css("z-index") == 0)
+                        $(this).children(".mask").stop().animate({"z-index": -1}, 0);
+                    else if($(this).children(".mask").css("z-index") == -1)
+                        $(this).children(".mask").stop().animate({"z-index": 0}, 0);
+                }, function(){
+                    if( $("#mouseleft").html() == 1)
+                        return ;
+                  //  console.log( $("#mouseleft").html());
+                   // $(this).parent().children(".mask").removeClass("a");
+                  //  if($(this).parent().children(".mask").css("z-index") == -1)
+                    if($(this).children(".mask").css("z-index") == -1)
+                        $(this).children(".mask").stop().animate({"z-index": 0}, 0);
+                       // $(this).parent().children(".mask").css("z-index", 0);
+                    else if($(this).children(".mask").css("z-index") == 0)
+                     //   $(this).parent().children(".mask").css("z-index", -1);
+                        $(this).children(".mask").stop().animate({"z-index": -1},  0);
+                   // $(this).css("transform", "scale(1)");
+                });
+
+                $(".name").html(user.Name);
+                $(".gender").html("性别：" + user.Gender);
+                if($("#center").html() != <?php echo $userId?>)
+                {
+                    $(".relationship").html("关系：二度好友");
+                    $(".goback").fadeIn(300);;
+                }
+                else
+                {
+                    $(".relationship").html("关系：一度好友");
+                    $(".goback").hide();
+                } 
 
                 var or = 460;
                 var ir = 100;
@@ -141,8 +236,8 @@
                         delt = Math.PI / 4;
                         var x = parseInt( (Math.cos( delt *(2 - i) ) * len) + or - mWidth/2 );
                         var y = parseInt( (Math.sin(  delt *(2 - i) ) *  len) + or - mWidth/2 );
-                        $(".m"+i).width(mWidth);
-                        $(".m"+i).height(mWidth);
+                      //  $(".m"+i).width(mWidth);
+                       // $(".m"+i).height(mWidth);
                          $(".m"+i).css("left", x);
                         $(".m"+i).css("top", y);
                       //  $("#m"+i).offset({top:y, left:x});
@@ -155,8 +250,8 @@
                         delt = Math.PI /(count-3 - 1);
                         var x = parseInt( (Math.cos( -Math.PI/2 - delt * (i - 4) ) *  len ) + or - mWidth/2 );
                         var y = parseInt( (Math.sin( -Math.PI/2 - delt * (i - 4) ) *  len ) + or - mWidth/2 );
-                        $(".m"+i).width(mWidth);
-                        $(".m"+i).height(mWidth);
+                       // $(".m"+i).width(mWidth);
+                        //$(".m"+i).height(mWidth);
                          $(".m"+i).css("left", x);
                         $(".m"+i).css("top", y);
                       //  $("#m"+i).offset({top:y, left:x});
@@ -176,8 +271,8 @@
                         var x = parseInt( (Math.cos( delt *(i - 1) ) * len )  - mWidth/2  + or);
                         var y = parseInt( (Math.sin(  delt *(i - 1) ) * len )  - mWidth/2  + or);
                        
-                        $(".m"+i).width(mWidth);
-                        $(".m"+i).height(mWidth);
+                       // $(".m"+i).width(mWidth);
+                       // $(".m"+i).height(mWidth);
                         $(".m"+i).css("left", x);
                         $(".m"+i).css("top", y);
                       //  $("#m"+i).position.top = y;
@@ -185,7 +280,7 @@
                         //$("#m"+i).offset({top:0, left:0});
                         right_o.push(i);
                         right_c.push(delt *(i - 1));
-                        console.log('right_c' + i);
+                      //  console.log('right_c' + i);
 
                     }
                 }
@@ -212,7 +307,7 @@
                     if($("#center").html() != <?php echo $userId?>)
                         return ;
                     var index = hit(event, right_c, right_o, left_c, left_o);
-                   // console.log(index);
+                    
                     if(index != -1)
                     {
                         if(overlap == 1)
@@ -227,9 +322,16 @@
                                 type: "get",
                                 url: "/index.php?r=relationship/friend",
                                 data:{"id":data[index - 1].Id},
+                                beforeSend:function(){
+                                    $(".cover").show();
+                                },
+                                complete:function(){
+                                    $(".cover").hide();
+                                },
+
                                 success: function(json) {
                                    // window.alert(html);
-                                    
+                                    $("#selectindex").html(0);
                                     showPanel(json);
 
 
@@ -243,6 +345,8 @@
 
                 }); 
 
+                
+
                 $('#outerDiv').unbind('mousedown').click(function () {
 
                 });
@@ -252,44 +356,82 @@
 
                     if(event.which != 1)
                         return false;
-
+                    $("#mouseleft").html(1);
                     preX = event.clientX;
                     preY = event.clientY;
                     var cx = $(".m0").offset().left + 100;
                     var cy = $(".m0").offset().top + 100;
-                   var index = hit(event, right_c, right_o, left_c, left_o);
-
-                   if(index != -1)
-                   {
+                    var index = hit(event, right_c, right_o, left_c, left_o);
+                    console.log(index);
+                    
+                    
+                
+                    if(index != -1)
+                    {
+                        if($("#center").html() != <?php echo $userId?>)
+                            $(".relationship").html("关系：二度好友");
+                        else 
+                             $(".relationship").html("关系：一度好友");
+                        var selectid;
+                        if(index == 0)
+                            selectid = $("#center").html();
+                        else 
+                            selectid = data[index - 1].Id;
+                        if(selectid != parseInt($("#selectid").html()))
+                        {
+                            $(".userinfo-order").children().removeClass('selected');
+                            $(".board").html("");
+                            $("#listpage").hide();
+                        }
+                        
+                        $(".group").children().css("z-index", 0);
+                        $(".m"+index + "mask").css("z-index", -10);
+                      //  console.log($(".m"+index + " mask animate"));
+                        $("#selectid").html(selectid);
+                        $("#selectindex").html(index);
                         if(index == 0)
                         {
                           //  console.log(user);
-                            $("#spec").html("<p>昵称：" +user.Name + "</p>");
-                            $("#spec").append("<p>手机号码：" +user.Mobile + "</p>");
+                        //    $("#spec").html("<p>昵称：" +user.Name + "</p>");
+                          //  $("#spec").append("<p>手机号码：" +user.Mobile + "</p>");
+                            $(".name").html(user.Name);
+                            $(".gender").html("性别：" + user.Gender);
+                           // if($("#center").html() == <?php echo $userId?>)
+                             //   $(".relationship").html("与Ta的关系为一度好友");
                         }
                         else 
                         {
+                            
                             if(overlap == 0)
                             {
-                                $("#spec").html("<p>昵称：" +data[index - 1].Name + "</p>");
-                                $("#spec").append("<p>手机号码：" +data[index - 1].Mobile + "</p>");
+                            //    $("#spec").html("<p>昵称：" +data[index - 1].Name + "</p>");
+                              //  $("#spec").append("<p>手机号码：" +data[index - 1].Mobile + "</p>");
+                                $(".name").html(data[index - 1].Name);
+                                $(".gender").html("性别：" + data[index - 1].Gender);
+                             //   $(".relationship").html("与Ta的关系为一度好友");
+
                             //console.log(data[index - 1].Name);
                             }  
                             else 
                             {
+
+                                $(".name").html(data[index - 1].Name);
+                                $(".gender").html("性别：" + data[index - 1].Gender);
+                             //   $(".relationship").html("与Ta的关系为一度好友");
+
                                // if(index <= 3)
                                 //{
                                  //   $("#spec").html("<p>" +data[index - 1].Name + "</p>");
                                // }
                                // else 
                                 //{
-                                    $("#spec").html("<p>昵称：" +data[index - 1].Name + "</p>");
-                                    $("#spec").append("<p>手机号码：" +data[index - 1].Mobile + "</p>");
+                                //    $("#spec").html("<p>昵称：" +data[index - 1].Name + "</p>");
+                                  //  $("#spec").append("<p>手机号码：" +data[index - 1].Mobile + "</p>");
                                // }
                             }
                         }
                         
-                   }
+                    }
                     //计算当前点击的点与圆心(150,150)的X轴的夹角(弧度) --> 上半圆为负(0 ~ -180), 下半圆未正[0 ~ 180]
                     preAngle = Math.atan2(preY - cy, preX - cx);
 
@@ -301,6 +443,7 @@
                     //移动事件
                     $("html").mousemove(function(event){
 
+                     //   console.log(1212);
                         curX = event.clientX;
                         curY = event.clientY;
 
@@ -463,6 +606,7 @@
                     //释放事件
                     $("html").mouseup(function(event){
                         $("html").unbind("mousemove");
+                        $("#mouseleft").html(0);
                     });
                 });
             }
@@ -473,6 +617,12 @@
                     type: "get",
                     url: "/index.php?r=relationship/friend",
                     data:{"id":<?php echo $userId?>},
+                    beforeSend:function(){
+                        $(".cover").show();
+                    },
+                    complete:function(){
+                        $(".cover").hide();
+                    },
                     success: function(json) {
                        // window.alert(html);
                         
@@ -488,6 +638,146 @@
 
     </div>
 
+<script type="text/javascript">  
+
+    $(".cover").hide();
+    $('#listpage').bootpag({
+
+                total:3,
+                maxVisible: 8,
+                page:1
+            }).on("page", function(event, /* page number here */ num){
+                $.ajax({
+                    type: "get",
+                    url: "/index.php?r=relationship/openorder",
+                    data:{"id":$("#selectid").html(), "index":$("#selecttype").html(), "page":num},
+                    beforeSend:function(){
+                        $(".cover").show();
+                    },
+                    complete:function(){
+                        $(".cover").hide();
+                    },
+                    success: function(json) {
+                       var j = JSON.parse(json);
+                       // console.log(j.count);
+                       // console.log(j.count);
+                        //console.log(parseInt(j.count/8 + 1));
+                       $('#listpage').bootpag({
+
+                            total: parseInt(j.count/8 + 1),
+                           
+                        });
+
+                       $("#totalpage").html(j.count);
+                        if(j.count > 8)
+                        {
+                            $("#listpage").fadeIn(300);
+                        }
+                        else 
+                        {
+                             $("#listpage").hide();
+                        }
+                        $("#totalpage").html(j.count);
+                        $(".board").html(j.html);
+
+
+                    }
+                });
+            });
+
+    
+function back() {
+    parent.location.reload();
+}
+
+
+function sclick(index) {
+
+   // console.log(index);
+   // console.log($("#totalpage").html());
+    
+    //$(".listpage").fadeIn(300);
+   // $(".orderlist").fadeOut(1000);
+    if(index == 0)
+    {
+       $(".boss").addClass("selected");
+       $(".worker").removeClass("selected");
+       $(".qna").removeClass("selected");
+       $(".orderlist").css("margin-top", "-150px");
+     
+    }
+    else if(index == 1)
+    {
+        $(".worker").addClass("selected");
+        $(".boss").removeClass("selected");
+        $(".qna").removeClass("selected");
+        $(".orderlist").css("margin-top", "-100px");
+    }
+    else if(index == 2)
+    {
+        $(".qna").addClass("selected");
+        $(".worker").removeClass("selected");
+        $(".boss").removeClass("selected");
+        $(".orderlist").css("margin-top", "-50px");
+    }
+    $("#curpage").html(1);
+    $("#selecttype").html(index);
+    $.ajax({
+        type: "get",
+        url: "/index.php?r=relationship/openorder",
+        data:{"id":$("#selectid").html(), "index":index, "page":1},
+        beforeSend:function(){
+            $(".cover").show();
+        },
+        complete:function(){
+            $(".cover").hide();
+        },
+        success: function(json) {
+           // window.alert(html);
+            $(".orderlist").fadeIn(1000);
+            var j = JSON.parse(json);
+         //   console.log(j.count);
+           // console.log(j.count);
+           // console.log(parseInt(j.count/8 + 1));
+            $('#listpage').bootpag({
+
+                total: parseInt(j.count/8 + 1),
+               
+            });
+
+            $("#totalpage").html(j.count);
+            if(j.count > 8)
+            {
+                $("#listpage").fadeIn(1000);;
+            }
+            else 
+            {
+                 $("#listpage").hide();
+            }
+            $("#totalpage").html(j.count);
+            $(".board").html(j.html);
+           // $(".board").fadeIn(1000);
+
+
+        }
+    });
+    
+    function loading(){ 
+        $(".cover").show();
+      //  $('#loading_img').html('<img src="images/loading.gif"/>'); 
+    } 
+
+
+    
+
+}
+
+
+
+
+
+
+</script>
 
 
    

@@ -142,23 +142,25 @@
     top: 120px;
     right: 40px;
     width: 320px;
-    height: 350px;
-    background-color: #f5f5f5;
+    height: 340px;
+    background-color:rgba(0, 0, 0, 0.34);
+    filter: alpha(opacity:34);
+    border-radius: 5px;
 }
+
 .login-box {
     width: 320px;
-    padding: 25px 25px 23px;
+    padding: 30px 30px 23px 30px;
     color: #6c6c6c;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
 
 }
 
 .login-title {
     font-size: 18px;
-    color: #008cee;
-    margin-top: 9px;
-    padding-bottom: 8px;
+    color: #fff;
+    
     
 }
 
@@ -167,7 +169,39 @@
     float: left;
 }
 
+.register-box
+{
+    position: absolute;
+}
+.register-box .register-close
+{
+    background: url(../img/login-close.png);
+    background-size: 100%;  
+    width: 15px;
+    height: 16px;
+    /* margin-left: 4px; */
+    margin-left: 300px;
+    margin-top: 6px;
+    position: absolute;
+}
+.register-box .qr
+{
+    background: url(../img/login-qr.jpeg);
+    width: 200px;
+    height: 200px;
+    background-size: 100%;
+    margin-left: 60px;
+    margin-top: 60px;
+    position: relative;
+}
 
+.register-box .spec
+{
+    font-size: 18px;
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 50px;
+}
 
 .contact-layout {
     width: 1200px;
@@ -414,10 +448,11 @@ margin-top: -150px;
 
     z-index: 0;
     width:100%;
-    height: 1060px;
-    background: #666 url(../img/relationshipbanner.jpeg) center no-repeat;
-    background-size: 1920px 1060px;
+    height: 860px;
+    background: #666 url(http://7xldgj.com1.z0.glb.clouddn.com/ubangweb/img/relationshipbanner.png) center no-repeat;
+    background-size: 1920px 860px;
     position:absolute;
+    background-color: #020204;
     /*
     width: 100%;
     height: 480px;
@@ -435,18 +470,21 @@ margin-top: -150px;
 }
 .section-relationship 
 {
+    width: 1500px;
+    margin: 0 auto;
 
 }
 
 #outerDiv
 {
-    width: 920px;
+    width: 850px;
     /*margin: 70px auto;*/
     height: 920px;
     border-radius:460px;
     position: relative;
 
     float: left;
+    margin-top: -130px;
    /* margin-right: 100px;
     margin-left: 300px;
     margin-top: 0px;
@@ -459,20 +497,142 @@ margin-top: -150px;
     height: 920px;
 }
 
-#spec
+.userinfo-bg
 {
-padding-top: 100px;
+    position: absolute;
+    width: 246px;
+    height: 274px;
+    background-color:#fff;
+    filter:alpha(opacity:10);
+    opacity:0.1;
+    margin-left: 858px;
+    margin-top: -16px;
+    border:1px solid #000;
+
 }
 
-#spec p
+.userinfo-spec
 {
-    font-size: 30px;
+    margin-top: 125px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+    padding-left: 870px;
 }
+
+.userinfo-spec .name
+{
+    font-size: 24px;
+    margin-top: -33px;
+    padding-left: 55px;
+}
+.userinfo-spec .title
+{
+    font-size: 18px;
+    position: relative;
+}
+.userinfo-spec .gender
+{
+    margin-bottom: 5px;
+}
+.userinfo-order
+{
+    position: relative; 
+    font-size: 18px;
+    color: #fff;
+    line-height: 50px;
+    padding-top: 13px;
+    margin-left: 858px;
+    width: 246px;
+}
+.userinfo-order .title
+{
+    position: absolute;
+    padding-left: 12px;
+}
+.userinfo-order .arrow
+{
+   padding-left: 225px;
+  
+}
+
+.userinfo-order .selected
+{
+    background:transparent;
+    /*border: 1px solid rgba(0,0,0,0.1);*/
+    background-color:rgba(255,255,255,0.1);
+}
+.orderlist
+{
+    margin-left: 1107px;
+    width: 260px;
+    display:none;
+    background:transparent;
+    /*border: 1px solid rgba(0,0,0,0.1);*/
+    background-color:rgba(255,255,255,0.1);
+
+}
+#listpage
+{
+    margin-left: 1107px;
+    margin-top: -16px;
+    display:none;
+}
+.board li
+{
+    height: 50px;
+    
+    color: #fff;
+}
+.board .row
+{
+    margin-left: 0px;
+    height: 50px;
+    line-height: 50px;
+    width: 260px;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-size: 18px;
+}
+
+.board .ordertitle
+{
+    margin-left: 12px;
+}
+
+.board .orderreward
+{
+    float: right;
+}
+.goback
+{
+    background-image: url("../img/relationship_back.png");
+    left: 1155px;
+    top: 700px;
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    display: none;
+}
+/*
+.userinfo-order .boss
+{
+    height: 50px;
+}
+.userinfo-order .worker
+{
+    height: 50px;
+}
+.userinfo-order .qna
+{
+    height: 50px;
+}
+*/
 .mine p
 {
     text-align:center;
-    font-size: 30px;
-    padding-top: 20px;
+    font-size: 24px;
+    padding-top: 210px;
+    color: #fff;
 }
 
 .introduce
@@ -521,14 +681,26 @@ padding-top: 100px;
 
 }
 
-.animate:hover  {
+
+.a:hover  {
    
     transition: 0.5s;
     transform: scale(1.05);
    
 }
 
-iTunes Store operation failed.
-The app references non-public selectors in Payload/vpn.app/vpn: allInstalledApplications, defaultWorkspace, openApplicationWithBundleID:
+.cover
+{
+    width:100%;
+    height:100%; 
+    z-index:1000;
+   /* opacity: 0.5;
+    background-color: #000;
+    */
+}
 
-
+.dots-loader
+{
+    top: 50%;
+    left: 50%;
+}

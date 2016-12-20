@@ -12,6 +12,7 @@
     
     <script type="text/javascript" src=" /js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src=" /js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/jquery.bootpag.min.js"></script>
 
     <link href="css/logincss.css" rel="stylesheet">
 
@@ -21,6 +22,7 @@
     <script src="/js/css3-mediaqueries.js"></script>
     <script src="/js/fwslider.js"></script>
     <script src="/js/common.js"></script>
+
     <!--end slider -->
 
 
