@@ -55,7 +55,7 @@ class RelationshipController extends Controller
 
             $id = Yii::$app->user->identity->attributes['Id'];
             if($id != 0)
-                return $this->render('index', ['userId'=>$id]);
+                return $this->render('index', ['userId'=>$id, 'userinfo'=>Yii::$app->user->identity->attributes]);
 
         }
 
@@ -85,9 +85,9 @@ class RelationshipController extends Controller
         {
             $id = $_GET['id'];
             $curl = curl_init(); 
-            $header = array ("Authorization:AppFrame 2-693ad9c3d0c54adf87fed7cf6dc44f3f");
+            $header = array ("Authorization:AppFrame ".Yii::$app->user->identity->attributes['AuthToken']);
             // 设置你需要抓取的URL 
-        	curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/contact/'.$id.'/first.json'); 
+        	curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1338/contact/'.$id.'/first.json'); 
           // echo '139.224.59.235:1337/contact/'.$id.'/first.json'; 
 	        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
             // 设置header 响应头是否输出
@@ -97,7 +97,7 @@ class RelationshipController extends Controller
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
             // 运行cURL，请求网页 
             $ret = curl_exec($curl); 
-            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1337/profile/'.$id.'.json');
+            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1338/profile/'.$id.'.json');
             $userret = curl_exec($curl);
             // 关闭URL请求 
             curl_close($curl); 
@@ -105,10 +105,43 @@ class RelationshipController extends Controller
             $info2 = json_decode($userret, true);
             $data  = $info['Data'];
             $user = $info2['Data'];
+            $result = array();
+            if($_GET['id'] == Yii::$app->user->identity->attributes['Id'])
+            {
+                $session = Yii::$app->session;
+                $r1friend  = array();
+                foreach ($data as $t) {
+                    array_push($r1friend, $t['Id']);
+                }
+               
+                $session['r1friend'] = $r1friend;
+                $result = $data;
+            }
+            else 
+            {
+                $session = Yii::$app->session;
+                $r1friend =  $session['r1friend'];
+                //var_dump($data);
+                if(count($r1friend) > 0)
+                {
+                    for ($i = count($data) - 1; $i >= 0 ; $i--) {
+                        if(!in_array($data[$i]['Id'], $r1friend) && $data[$i]['Id'] != Yii::$app->user->identity->attributes['Id'])
+                            array_push($result, $data[$i]);
+                            //unset($data[$i]);
+                    }
+                }
+               // echo 'ttttt';
+                //var_dump($result);
+               
+                
+             //   return ;
+
+            }
+
             //$b = $info['b'];
            // return $this->render('index', ['data'=>$data, 'user'=>$user]);
            // return \yii\helpers\Json::encode($test);
-            return  \yii\helpers\Json::encode(array('data'=>$data, 'user'=>$user));
+            return  \yii\helpers\Json::encode(array('data'=>$result, 'user'=>$user));
         }
         
        // echo ['data'=>$data, 'user'=>$user];
@@ -128,19 +161,19 @@ class RelationshipController extends Controller
             if($index == 0)
             {
                 $type = 2;
-                $url = '139.224.59.235:1337/order/getopenorderwithuserid.json?Id='.$id.'&Page='.$page.'&Size='.'8&Type='.$type;
-                $count_url = '139.224.59.235:1337/order/getopenorderwithuserid.json?Id='.$id.'&Page=1&Size=20&Type='.$type;
+                $url = '139.224.59.235:1338/order/getopenorderwithuserid.json?Id='.$id.'&Page='.$page.'&Size='.'8&Type='.$type;
+                $count_url = '139.224.59.235:1338/order/getopenorderwithuserid.json?Id='.$id.'&Page=1&Size=20&Type='.$type;
             }
             else if($index == 1)
             {
                 $type = 1;
-                $url = '139.224.59.235:1337/order/getopenorderwithuserid.json?Id='.$id.'&Page='.$page.'&Size='.'8&Type='.$type;
-                $count_url = '139.224.59.235:1337/order/getopenorderwithuserid.json?Id='.$id.'&Page=1&Size=20&Type='.$type;
+                $url = '139.224.59.235:1338/order/getopenorderwithuserid.json?Id='.$id.'&Page='.$page.'&Size='.'8&Type='.$type;
+                $count_url = '139.224.59.235:1338/order/getopenorderwithuserid.json?Id='.$id.'&Page=1&Size=20&Type='.$type;
             }
             else if($index == 2)
             {
-                $url = '139.224.59.235:1337/profile/'.$id.'/question.json?Page='.$page.'&Size='.'8&questionStatus=1';
-                $count_url = '139.224.59.235:1337/profile/'.$id.'/question.json?Page=1&Size=20&questionStatus=1';
+                $url = '139.224.59.235:1338/profile/'.$id.'/question.json?Page='.$page.'&Size='.'8&questionStatus=1';
+                $count_url = '139.224.59.235:1338/profile/'.$id.'/question.json?Page=1&Size=20&questionStatus=1';
             }
 
            // $type = $_GET['Type'];

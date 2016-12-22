@@ -8,7 +8,7 @@
 .view
 {
 
-    
+  height: 900px;  
 
     
 }
@@ -484,7 +484,7 @@ margin-top: -150px;
     position: relative;
 
     float: left;
-    margin-top: -130px;
+   
    /* margin-right: 100px;
     margin-left: 300px;
     margin-top: 0px;
@@ -506,25 +506,37 @@ margin-top: -150px;
     filter:alpha(opacity:10);
     opacity:0.1;
     margin-left: 858px;
-    margin-top: -16px;
+    margin-top: 90px;
     border:1px solid #000;
 
 }
 
 .userinfo-spec
 {
-    margin-top: 125px;
+    margin-top: 110px;
     font-size: 18px;
     color: #fff;
     line-height: 1.6;
-    padding-left: 870px;
+    margin-left: 870px;
+    position: absolute;
 }
 
+.userinfo-spec .avatar
+{
+    width: 60px;
+    height: 60px;
+    background-size: 100%;
+    border-radius: 30px;
+    position: absolute;
+}
 .userinfo-spec .name
 {
-    font-size: 24px;
-    margin-top: -33px;
-    padding-left: 55px;
+    font-size: 18px;
+    padding-left: 75px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 220px;
 }
 .userinfo-spec .title
 {
@@ -533,7 +545,39 @@ margin-top: -150px;
 }
 .userinfo-spec .gender
 {
-    margin-bottom: 5px;
+    margin-left: 75px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    margin-top: 1px;
+}
+.userinfo-spec .user-relationship
+{
+    margin-left: 105px;
+    width: 90px;
+    height: 26px;
+}
+.userinfo-spec .midman
+{
+    margin-top: 18px;
+}
+
+.midman .midman-title
+{
+    position: absolute;
+}
+.midman .midman-avatar
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-size: 100%;
+    margin-left: 75px;
+    position: absolute;
+}
+.midman .midman-name
+{
+   margin-left: 115px; 
 }
 .userinfo-order
 {
@@ -541,7 +585,7 @@ margin-top: -150px;
     font-size: 18px;
     color: #fff;
     line-height: 50px;
-    padding-top: 13px;
+    padding-top: 213px;
     margin-left: 858px;
     width: 246px;
 }
@@ -562,6 +606,8 @@ margin-top: -150px;
     /*border: 1px solid rgba(0,0,0,0.1);*/
     background-color:rgba(255,255,255,0.1);
 }
+
+
 .orderlist
 {
     margin-left: 1107px;
@@ -597,6 +643,12 @@ margin-top: -150px;
 .board .ordertitle
 {
     margin-left: 12px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 190px;
+    display: inline-block;
+    table-layout: fixed;
+    white-space: nowrap;
 }
 
 .board .orderreward
@@ -613,20 +665,24 @@ margin-top: -150px;
     height: 40px;
     display: none;
 }
-/*
-.userinfo-order .boss
+
+.userinfo-order .boss:hover
 {
-    height: 50px;
+    background-color:rgba(255,255,255,0.1);
+    cursor: pointer;
 }
-.userinfo-order .worker
+
+.userinfo-order .worker:hover
 {
-    height: 50px;
+    background-color:rgba(255,255,255,0.1);
+    cursor: pointer;
 }
-.userinfo-order .qna
+.userinfo-order .qna:hover
 {
-    height: 50px;
+   background-color:rgba(255,255,255,0.1);
+   cursor: pointer;
 }
-*/
+
 .mine p
 {
     text-align:center;
@@ -681,6 +737,10 @@ margin-top: -150px;
 
 }
 
+.animate:hover
+{
+    cursor: pointer;
+}
 
 .a:hover  {
    
