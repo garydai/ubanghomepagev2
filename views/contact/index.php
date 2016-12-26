@@ -12,10 +12,10 @@
                     地址：浙江省杭州市上城区白云路28号新华社对面 移动互联技术研发中心一楼
                 </p>
                 <p>
-                    微信: you_qiubiying
+                    微信：you_qiubiying
                 </p>
                 <p>
-                	邮箱: contact@ubangwang.com
+                	邮箱：contact@ubangwang.com
                 </p>
         </li>
 
