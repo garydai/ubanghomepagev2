@@ -58,25 +58,9 @@ class RelationshipController extends Controller
                 return $this->render('index', ['userId'=>$id, 'userinfo'=>Yii::$app->user->identity->attributes]);
 
         }
-
-       // $model = new LoginForm(); 
-       // var_dump(Yii::$app->request->post());
-
-        //if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
-             
-          //  $id = Yii::$app->user->identity->attributes['Id'];
-          ///  if($id != 0)
-             //   return $this->render('index', ['userId'=>$id]);
-            //else 
-              //  $this->redirect(array('site/index'));
-         //} else {
-         //   echo 'end';
         $session = Yii::$app->session;
         $session['ubangwangrelationship'] = 1;
         $this->redirect(array('login/index'));
-            //echo 12;
-       // }
- 
     }
 
     public function actionFriend()
@@ -127,24 +111,13 @@ class RelationshipController extends Controller
                     for ($i = count($data) - 1; $i >= 0 ; $i--) {
                         if(!in_array($data[$i]['Id'], $r1friend) && $data[$i]['Id'] != Yii::$app->user->identity->attributes['Id'])
                             array_push($result, $data[$i]);
-                            //unset($data[$i]);
                     }
                 }
-               // echo 'ttttt';
-                //var_dump($result);
-               
-                
-             //   return ;
 
             }
-
-            //$b = $info['b'];
-           // return $this->render('index', ['data'=>$data, 'user'=>$user]);
-           // return \yii\helpers\Json::encode($test);
             return  \yii\helpers\Json::encode(array('data'=>$result, 'user'=>$user));
         }
         
-       // echo ['data'=>$data, 'user'=>$user];
     }
     //后台返回缺少order总数字段，默认最多20个order
     public function actionOpenorder()
@@ -197,7 +170,7 @@ class RelationshipController extends Controller
             {
                 $data = $info['Data'];
                 $count = count($data);
-                if($count > 8 && $page != 1)
+                if($count > 6 && $page != 1)
                 {
                     // 设置你需要抓取的URL 
                     curl_setopt($curl, CURLOPT_URL, $url); 
@@ -220,7 +193,7 @@ class RelationshipController extends Controller
                     $temp = 0;
                     foreach ($data as $order) {
                         $temp += 1;
-                        if($temp > 8)
+                        if($temp > 6)
                             break;
                         $html .= '<li class="row">
                             <p>
@@ -243,15 +216,36 @@ class RelationshipController extends Controller
                 return  \yii\helpers\Json::encode(array('html'=>$html, 'count'=>$count));
                  // return  $html;
             }
-            
 
-          
-           # $data  = $info['Data'];
+        }
+
+    }
+
+    public function actionGetmidman()
+    {
+        if(isset($_GET['id']))
+        {
+            $selfid = Yii::$app->user->identity->attributes['Id'];
+            $id = $_GET['id'];
+            $curl = curl_init(); 
+            $header = array ("Authorization:AppFrame ".Yii::$app->user->identity->attributes['AuthToken']);
+            // 设置你需要抓取的URL 
+            curl_setopt($curl, CURLOPT_URL, '139.224.59.235:1338/contact/'.$selfid.'/middleman.json?FriendId='.$id); 
+          // echo '139.224.59.235:1337/contact/'.$id.'/first.json'; 
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+            // 设置header 响应头是否输出
+            curl_setopt($curl, CURLOPT_HEADER, 0); 
+            // 设置cURL 参数，要求结果保存到字符串中还是输出到屏幕上。
+            // 1如果成功只将结果返回，不自动输出任何内容。如果失败返回FALSE 
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
+            // 运行cURL，请求网页 
+            $ret = curl_exec($curl); 
             
-            //$b = $info['b'];
-           // return $this->render('index', ['data'=>$data, 'user'=>$user]);
-           // return \yii\helpers\Json::encode($test);
-           // return  \yii\helpers\Json::encode(array('data'=>$data, 'user'=>$user));
+            curl_close($curl); 
+            $info = json_decode($ret,true);
+            $data  = $info['Data'];
+           // var_dump($data);
+            return  \yii\helpers\Json::encode(array('data'=>$data));
         }
 
     }

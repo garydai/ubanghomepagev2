@@ -1,15 +1,98 @@
 <link href="css/spinners.css" rel="stylesheet">
+<script type="text/javascript" src=" /js/jquery.dotdotdot.js"></script>
+<link rel="stylesheet" href="/css/lightbox.min.css">
+<script src="/js/lightbox.js"></script>
 <div class="cover" style="position:absolute;">
     <div class="dots-loader"></div>
 
 </div>
-<div class="relationship-content" ondragstart="return false;" ondrop="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
 
-    <div class="relationship-bg"> 
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body">您不能查看二度好友的一度好友</div>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-user" >
+
+            <div class="userinfo-bg-b">
+                
+            </div> 
+            <div class="userinfo-spec">
+                <div class="avatar"></div>
+                <div class="line1"></div>
+                <div class="name"></div>
+                <div class="nickname">
+                </div>
+                <div class="gender"></div>
+                <div class="user-relationship"></div>      
+            </div>
+            <div class="userinfo-detail">
+                <div class="ubangnumber-title">友帮号：</div>  
+                <div class="ubangnumber-value"></div>
+                <div class="location-title">地址：</div>  
+                <div class="location-value"></div>
+                <div class="line2"></div>
+                <div class="pic-title">个人相册</div>
+                <div class="pic-comma">：</div>
+                <div class="pic-value">
+                
+                </div>
+                <div class="spec-title">个人说明</div>
+                <div class="spec-comma">：</div>
+                <img class="spec-bg" src="img/spec_bg.png">
+                <div class="spec-value dot-ellipsis dot-height-100"></div>
+                <div class="line3"></div>
+                <div class="midman">
+                    <div class="midman-title">中间人：</div>
+                    <div class="midman-value">
+                        <div class="midman-avatar">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
 
 
+            <div class="userinfo-order">
+                <div class="boss" onclick="sclick(0, '.modal-user')">
+                    <img class="icon" src="img/askhelp.png">
+                    <div class="title">Ta的求助</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+                <div class="worker" onclick="sclick(1, '.modal-user')">
+                    <img class="icon" src="img/help.png">
+                    <div class="title">Ta的助人</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+                <div class="qna" onclick="sclick(2, '.modal-user')">
+                    <img class="icon" src="img/question.png">
+                    <div class="title">Ta的提问</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+
+            </div>
+           
+            <div class="orderlist">
+                <ul class="order list-unstyled board">
+                </ul>
+                
+            </div>
 
 
+    </div><!-- /.modal -->
+</div>
+
+<div class="relationship-content" ondragstart="return false;" ondrop="return false;"  unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
+
+    <div class="relationship-bg" onselectstart="return false;"> 
          <!-- 代码部分begin -->
         <!--
             r = 460px
@@ -32,22 +115,55 @@
 
             <div class="userinfo-spec">
                 <div class="avatar"></div>
+                <div class="line1"></div>
                 <div class="name"></div>
+                <div class="nickname"></div>
                 <div class="gender"></div>
-                <div class="user-relationship"></div>
+                <div class="user-relationship"></div>      
+            </div>
+            <div class="userinfo-detail">
+                <div class="ubangnumber-title">友帮号：</div>  
+                <div class="ubangnumber-value"></div>
+                <div class="location-title">地址：</div>  
+                <div class="location-value"></div>
+                <div class="line2"></div>
+                <div class="pic-title">个人相册</div>
+                <div class="pic-comma">：</div>
+                <div class="pic-value">
+                    
+                   
+                </div>
+                <div class="spec-title">个人说明</div>
+                <div class="spec-comma">：</div>
+                <img class="spec-bg" src="img/spec_bg.png">
+                <div class="spec-value dot-ellipsis dot-height-100"></div>
+                <div class="line3"></div>
                 <div class="midman">
                     <div class="midman-title">中间人：</div>
+                    <div class="midman-value ">
+                        
+                    </div>
                     
-                    <div class="midman-avatar"></div>
-                    <div class="midman-name"></div>
                 </div>
-            </div>
-            
-            <div class="userinfo-order">
-                <div class="boss" onclick="sclick(0)"><div class="title">Ta的求助</div><img class="arrow" src="img/relationship-arrow.png"></div>
-                <div class="worker" onclick="sclick(1)"><div class="title">Ta的助人</div><img class="arrow" src="img/relationship-arrow.png"></div>
-                <div class="qna" onclick="sclick(2)"><div class="title">Ta的提问</div><img class="arrow" src="img/relationship-arrow.png"></div>
                 
+            </div>         
+            <div class="userinfo-order">
+                <div class="boss" onclick="sclick(0, '.relationship-bg')">
+                    <img class="icon" src="img/askhelp.png">
+                    <div class="title">Ta的求助</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+                <div class="worker" onclick="sclick(1, '.relationship-bg')">
+                    <img class="icon" src="img/help.png">
+                    <div class="title">Ta的助人</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+                <div class="qna" onclick="sclick(2, '.relationship-bg')">
+                    <img class="icon" src="img/question.png">
+                    <div class="title">Ta的提问</div>
+                    <img class="arrow" src="img/order_down.png">
+                </div>
+
             </div>
            
             <div class="orderlist">
@@ -55,9 +171,11 @@
                 </ul>
                 
             </div>
+            
+
             <div id="listpage"></div>
             <div class="goback" onclick="back()"></div>
-
+            
   
         </div>
          
@@ -108,8 +226,8 @@
         {
             var x = $(".m"+right_o[i]).offset().left + r1;
             var y = $(".m"+right_o[i]).offset().top + r1;
-            console.log("x= " +mx + "y= " + my);
-            console.log("xx="+$(".m"+right_o[i]).offset().left+ "y="+$(".m"+right_o[i]).offset().top);
+         //   console.log("x= " +mx + "y= " + my);
+           // console.log("xx="+$(".m"+right_o[i]).offset().left+ "y="+$(".m"+right_o[i]).offset().top);
             if(Math.pow(mx - x, 2) + Math.pow(my - y, 2) <= Math.pow(r1, 2)) 
                 return right_o[i];
         
@@ -129,14 +247,160 @@
         return -1;
 
     }
+
+    function showUserInfo(user, parent)
+    {
+        console.log(user.Name);
+        $(parent + ".name").html(user.Name);
+        if(user.FNickName)
+        {
+            $(parent + '.nickname').show();
+
+            $(parent + '.nickname').html('(' +user.FNickName + ')');
+        }
+        else 
+        {
+            $(parent+'.nickname').hide();
+        }
+        $(parent+".midman-avatar").css("visibility", "hidden");
+        $(parent+".midman-name").css("visibility", "hidden");   
+        if(user.YBAccount)
+            $(parent+".ubangnumber-value").html(user.YBAccount);
+        else 
+            $(parent+".ubangnumber-value").html("");    
+        if(user.Location)
+            $(parent+".location-value").html(user.Location);
+        else 
+            $(parent+".location-value").html("");  
+        if(user.Gender == '男'){
+            $(parent+".gender").css("background-image", 'url(/img/male.png)');
+
+        }
+        else {
+            $(parent+".gender").css("background-image", 'url(/img/female.png)');
+        }
+        if(user.Signature)
+            $(parent+".spec-value").html(user.Signature);
+        else 
+            $(parent+".spec-value").html("暂无说明");  
+        //不是本人
+        if(user.Id != <?php echo $userId?>)
+        {
+            $(parent+".user-relationship").css("visibility", "visible");
+            $(parent+".gender").css("margin-left", "28px");
+        }
+        else 
+        {
+            $(parent+".user-relationship").css("visibility", "hidden");
+            $(parent+".gender").css("margin-left", "60px");
+        }
+        //二度界面
+        if($("#center").html() != <?php echo $userId?>)
+        {
+            $(parent+".user-relationship").css("background-image", 'url(/img/r1.png)');
+            if(parent == '.relationship-bg ')
+            {
+                //非中心
+                if(user.Id != $("#center").html())
+                {
+                    $(parent+".user-relationship").css("background-image", 'url(/img/r2.png)');
+                    $.ajax({
+                            type: "get",
+                            url: "/index.php?r=relationship/getmidman",
+                            data:{"id":user.Id},
+                           
+
+                            success: function(json) {
+                                var result = jQuery.parseJSON(json); 
+                                 var data = result.data;
+                              //  console.log(data);
+                                var string = '';
+                                //显示最多5个中间人
+                                for(var i = 0; i < data.length && i < 5; i ++)
+                                {
+                                    string = string + '<div class="midman-avatar" midman-id=' + data[i].Id + ' style="background-image:url(http://7xldgj.com1.z0.glb.clouddn.com/' + data[i].Avatar+ ');margin-left:'+ (75+54*(i)) + 'px"></div>';
+
+
+                                }
+                             //   console.log(string);
+                                $(parent+".midman-avatar").remove();
+                                $(parent+".midman-value").append(string);
+
+                                $(".midman-avatar").unbind('click');
+                                $(".midman-avatar").click(function(){
+
+                                   // console.log($(this).attr('midman-id'));
+                                    $('.midman').attr('selected-id', $(this).attr('midman-id'));
+                                    $.ajax({
+                                        type: "get",
+                                        url: "/index.php?r=relationship/friend",
+                                        data:{"id":$(this).attr('midman-id')},
+                                        beforeSend:function(){
+                                            $(".cover").show();
+                                        },
+                                        complete:function(){
+                                            $(".cover").hide();
+                                        },
+                                        success: function(json) {
+                                           // window.alert(html);
+                                            var result = jQuery.parseJSON(json); 
+                                            var user = result.user;
+                                             
+                                            showUserInfo(user, '.modal-user ');
+                                            $('#myModal').modal();
+
+
+                                        }
+                                    });
+                                });
+                            }
+
+                            
+                        });
+                }
+            }
+        }
+        //一度界面
+        else 
+        {
+            
+            //不是本人
+            if(user.Id != <?php echo $userId?>)
+            {
+                $(parent+".user-relationship").css("background-image", 'url(/img/r1.png)');
+            }
+        }
+          
+        if(!user.hasOwnProperty('Avatar'))
+            var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
+        else 
+            var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
+        $(parent+".avatar").css("background-image", 'url(' + avatar + ')');
+        $(parent+" .pic-value").children().remove();
+        if(user.Photos)
+        {
+           // console.log(user.Photos);
+            var photos = user.Photos.split(',');
+            var string = '';
+            for (var i = 0; i < photos.length; i++)
+            {
+                var p = 'http://7xldgj.com1.z0.glb.clouddn.com/' + photos[i];
+                var p_thumb = p  + "?imageView2/1/w/40/h/40";
+                string = string + '<a class="pic' + (i + 1) +'-big" href="' + p + '" data-lightbox="example-set" data-title=""><img class="pic' 
+                + (i + 1) + '" src="' + p_thumb + '" alt=""/></a>';
+           //     console.log(string);
+            }
+
+            $(parent+' .pic-value').append(string);
+        }
+    }
     function showPanel(json)
     {
-
+        $("#mouseleft").html(0);
         var result = jQuery.parseJSON(json); 
         var data = result.data;
         var user = result.user;
         $("#center").html(user.Id);
-
         $("#friend").children().remove();
         $(".mine").children().remove();
         for(var i = 0; i < data.length; i ++)
@@ -146,7 +410,7 @@
             else 
                 var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + data[i].Avatar;
             z = (i + 1) * 2 - 1;
-            $("#friend").append('<div class="group"><div class="index" style="visibility:hidden">'+ (i+ 1) + '</div><div class="z" style="visibility:hidden">'+ z + '</div><div class="m' + (i+1)  + ' m'+ (i + 1)+'normal normal animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; width:130px;height:130px;border-radius: 65px;z-index:' + z + '" ></div><div class="m' + (i+1)  + ' '+ 'm' + (i+1)  +'mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:140px;height:140px;border-radius: 70px;margin-top: -5px;margin-left: -5px; z-index:' + z + '"></div></div>');
+            $("#friend").append('<div class="group"><div class="index" style="display:none">'+ (i+ 1) + '</div><div class="z" style="display:none">'+ z + '</div><div class="m' + (i+1)  + ' m'+ (i + 1)+'normal normal animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; width:130px;height:130px;border-radius: 65px;z-index:' + z + '" ></div><div class="m' + (i+1)  + ' '+ 'm' + (i+1)  +'mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:140px;height:140px;border-radius: 70px;margin-top: -5px;margin-left: -5px; z-index:' + z + '"></div></div>');
             
         }
 
@@ -155,7 +419,7 @@
             else 
                 var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
 
-        $(".mine").append('<div class="m0bg" style="position: absolute; background-image: url(img/rotate.png);background-size: 100% 100%; background-repeat: no-repeat; width:359px;height:350px;margin-top: -78px;margin-left: -80px;z-index:-2"></div><div class="group"><div class="index" style="visibility:hidden">0</div><div class="z" style="visibility:hidden">100000</div><div class="m0 m0normal normal animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 100px; width:200px;height:200px;z-index:100000"></div><div class="m0' + ' '+ 'm0mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:210px;height:210px;border-radius: 105px;margin-top: -5px;margin-left: -5px;z-index:100000"></div></div>');
+        $(".mine").append('<div class="m0bg" style="position: absolute; background-image: url(img/rotate.png);background-size: 100% 100%; background-repeat: no-repeat; width:359px;height:350px;margin-top: -78px;margin-left: -80px;z-index:-2"></div><div class="group"><div class="index" style="display:none">0</div><div class="z" style="display:none">100000</div><div class="m0 m0normal normal animate" style="position: absolute; background-image: url(' + avatar + ');background-size: 100% 100%; background-repeat: no-repeat; border-radius: 100px; width:200px;height:200px;z-index:100000"></div><div class="m0' + ' '+ 'm0mask animate mask" style="position: absolute; background-color: rgba(255, 255, 255, 0.6);background-size: 100% 100%; background-repeat: no-repeat; width:210px;height:210px;border-radius: 105px;margin-top: -5px;margin-left: -5px;z-index:100000"></div></div>');
         $(".mine").append("<p>" +user.Name + "</p>")
 
        // $(".group").children().css("z-index", 0);
@@ -166,6 +430,12 @@
 
         $(".group").hover(function(){
 
+            console.log($("#mouseleft").html());
+           // return ;
+            if($("#mouseleft").html() && parseInt($("#mouseleft").html()) == 1)
+            {
+                return ;
+            }
             $(".group").each(function(){
                 var z = parseInt($(this).children(".z").html());
                 $(this).children(".normal").stop().animate({"z-index": z}, 0);
@@ -174,131 +444,41 @@
             });
             var z = parseInt($(this).children(".z").html());
             $(this).children(".normal").stop().animate({"z-index": z + 1}, 0);
-
-
             var index = parseInt($(this).children(".index").html()) ;
-            /*
-            if($("#center").html() != <?php echo $userId?>)
-            {
-                if(index != 0)
-                    $(".user-relationship").css("background-image", 'url(/img/r2.png)');
-                else 
-                    $(".user-relationship").css("background-image", 'url(/img/r1.png)');
-            }
-            else 
-            {
-                $(".midman-avatar").css("visibility", "hidden");
-                $(".midman-name").css("visibility", "hidden"); 
-                $(".user-relationship").css("background-image", 'url(/img/r1.png)');
-            }
             var selectid;
             if(index == 0)
                 selectid = $("#center").html();
             else 
                 selectid = data[index - 1].Id;
-            if(selectid != parseInt($("#selectid").html()))
-            {
-                $(".userinfo-order").children().removeClass('selected');
-                $(".board").html("");
-                $("#listpage").hide();
-            }
-            
-           // $(".group").children().css("z-index", 0);
-            console.log($("#selectindex").html());
-            if(parseInt($("#selectindex").html()) != index )
-            {
-          //      var z = parseInt($(".m" + $("#selectindex").html() + "normal").css("z-index"));
-            //    $(".m" + $("#selectindex").html() + "normal").stop().animate({"z-index": z - 1}, 0);
-              //  var z = parseInt($(".m" + index + "normal").css("z-index"));
-              //  $(".m" + index + "normal").stop().animate({"z-index": z + 1}, 0);
-               // $(".m"+index + "mask").css("z-index", -10);
-              //  console.log($(".m"+index + " mask animate"));
-                $("#selectid").html(selectid);
-                $("#selectindex").html(index);
-            }
-            */
-            console.log(index);
+            $("#selectid").html(selectid);
+            $("#selectindex").html(index);
+            $(".boss").removeClass("selected");
+            $(".worker").removeClass("selected");
+            $(".qna").removeClass("selected");
+            $(".orderlist").hide();
             if(index == 0)
             {
-                $(".name").html(user.Name);
-
-                $(".midman-avatar").css("visibility", "hidden");
-                $(".midman-name").css("visibility", "hidden");       
                 
-                if(user.Gender == '男')
-                    $(".gender").css("background-image", 'url(/img/male.png)');
-                else 
-                    $(".gender").css("background-image", 'url(/img/female.png)');
-                if(user.Id == <?php echo $userId?>)
-                {
-                    $(".user-relationship").css("visibility", "hidden");
-                }
-                else 
-                   $(".user-relationship").css("visibility", "visible");
-                if(!user.hasOwnProperty('Avatar'))
-                    var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
-                else 
-                    var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
-                $(".avatar").css("background-image", 'url(' + avatar + ')');
+                showUserInfo(user, '.relationship-bg ');
             }
+            //非中心
             else 
             {
-                if($("#center").html() != <?php echo $userId?>)
+                if(data[index - 1])
                 {
-                    $(".midman-avatar").css("visibility", "visible");
-                    $(".midman-name").css("visibility", "visible"); 
+                    showUserInfo(data[index - 1], '.relationship-bg ');
                 }
-                   
-                if(data[index - 1].Id == <?php echo $userId?>)
-                {
-                    $(".user-relationship").css("visibility", "hidden");
-                }
-                else 
-                    $(".user-relationship").css("visibility", "visible");
-                if(data[index - 1].FNickName)
-                {
-                    $(".name").html(data[index - 1].FNickName + "(" + data[index - 1].Name + ")");
-                }
-                else 
-                    $(".name").html(data[index - 1].Name);
-                if(data[index - 1].Gender == '男') 
-                    $(".gender").css("background-image", 'url(/img/male.png)');
-                else 
-                    $(".gender").css("background-image", 'url(/img/female.png)');
-                if(!data[index - 1].hasOwnProperty('Avatar'))
-                    var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
-                else 
-                    var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + data[index - 1].Avatar;
-                
-
-                $(".avatar").css("background-image", 'url(' + avatar + ')');
+                return ;
 
             }
 
 
-        //    console.log($(".group"));
-          //  if( $("#mouseleft").html() == 1)
-            //    return ;
-           // var z = parseInt($(this).children(".normal").css("z-index"));
-           // $(this).children(".normal").stop().animate({"z-index": z + 1}, 0);
+       
         }, function(){
-          //  return ;
-           // if( $("#mouseleft").html() == 1)
-             //   return ;
-            //var z = parseInt($(this).children(".normal").css("z-index"));
-            //$(this).children(".normal").stop().animate({"z-index": z - 1}, 0);
+          
 
         });
-        
-        $(".avatar").css("background-image", 'url(http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar + ')');
-        $(".name").html(user.Name);
-        if(user.Gender == '男')
-            $(".gender").css("background-image", 'url(/img/male.png)');
-        else 
-            $(".gender").css("background-image", 'url(/img/female.png)');
-
-        $(".midman-avatar").css("visibility", "hidden");
-        $(".midman-name").css("visibility", "hidden"); 
+        showUserInfo(user, '.relationship-bg ');
         if($("#center").html() != <?php echo $userId?>)
         {
             $(".user-relationship").css("visibility", "visible");
@@ -392,53 +572,7 @@
         var anti = -1;
         var preAnti = -1;
 
-        $('#outerDiv').unbind('dblclick').click(function () {
-
-        });
-        $('#outerDiv').dblclick(function(event) {
-
-             // alert('Handler for .dblclick() called.');
-            if($("#center").html() != <?php echo $userId?>)
-                return ;
-            var index = hit(event, right_c, right_o, left_c, left_o);
-            
-            if(index != -1)
-            {
-                if(overlap == 1)
-                {
-            //        if(index >3)
-              //          return ;
-                }
-                if(index != 0)
-                {
-
-                    $.ajax({
-                        type: "get",
-                        url: "/index.php?r=relationship/friend",
-                        data:{"id":data[index - 1].Id},
-                        beforeSend:function(){
-                            $(".cover").show();
-                        },
-                        complete:function(){
-                            $(".cover").hide();
-                        },
-
-                        success: function(json) {
-                           // window.alert(html);
-                            $("#selectindex").html(0);
-                        //    console.log("12121" + json);
-                            showPanel(json);
-
-
-                        }
-                    });
-                }
-                
-            }
-
-             
-
-        }); 
+       
 
         
 
@@ -457,16 +591,19 @@
             var cx = $(".m0").offset().left + 100;
             var cy = $(".m0").offset().top + 100;
             var index = hit(event, right_c, right_o, left_c, left_o);
-            console.log(index);
+         //   console.log(index);
             
-            
-        
             if(index != -1)
             {
-         
+                
                 if(index != 0)
                 {
-
+                    if($("#center").html() != <?php echo $userId?>)
+                    {
+                        $("#mouseleft").html(0);
+                        $('#alertModal').modal();
+                        return ;
+                    }
                     $.ajax({
                         type: "get",
                         url: "/index.php?r=relationship/friend",
@@ -488,110 +625,14 @@
                         }
                     });
                 }
+                else 
+                {
+                    $("#mouseleft").html(0);
+                }
+                
                 return ;
                 
             }
-
-                /*
-                console.log($("#center").html());
-                console.log(<?php echo $userId?>);
-                //二度好友
-                if($("#center").html() != <?php echo $userId?>)
-                {
-                    if(index != 0)
-                        $(".user-relationship").css("background-image", 'url(/img/r2.png)');
-                    else 
-                        $(".user-relationship").css("background-image", 'url(/img/r1.png)');
-                }
-                else 
-                {
-                    $(".midman-avatar").css("visibility", "hidden");
-                    $(".midman-name").css("visibility", "hidden"); 
-                    $(".user-relationship").css("background-image", 'url(/img/r1.png)');
-                }
-                var selectid;
-                if(index == 0)
-                    selectid = $("#center").html();
-                else 
-                    selectid = data[index - 1].Id;
-                if(selectid != parseInt($("#selectid").html()))
-                {
-                    $(".userinfo-order").children().removeClass('selected');
-                    $(".board").html("");
-                    $("#listpage").hide();
-                }
-                
-               // $(".group").children().css("z-index", 0);
-               console.log($("#selectindex").html());
-               if(parseInt($("#selectindex").html()) != index )
-               {
-                    var z = parseInt($(".m" + $("#selectindex").html() + "normal").css("z-index"));
-                    $(".m" + $("#selectindex").html() + "normal").stop().animate({"z-index": z - 1}, 0);
-                    var z = parseInt($(".m" + index + "normal").css("z-index"));
-                    $(".m" + index + "normal").stop().animate({"z-index": z + 1}, 0);
-                   // $(".m"+index + "mask").css("z-index", -10);
-                  //  console.log($(".m"+index + " mask animate"));
-                    $("#selectid").html(selectid);
-                    $("#selectindex").html(index);
-               }
-                
-                if(index == 0)
-                {
-                    $(".name").html(user.Name);
-
-                    $(".midman-avatar").css("visibility", "hidden");
-                    $(".midman-name").css("visibility", "hidden");       
-                    
-                    if(user.Gender == '男')
-                        $(".gender").css("background-image", 'url(/img/male.png)');
-                    else 
-                        $(".gender").css("background-image", 'url(/img/female.png)');
-                    if(user.Id == <?php echo $userId?>)
-                    {
-                        $(".user-relationship").css("visibility", "hidden");
-                    }
-                    else 
-                       $(".user-relationship").css("visibility", "visible");
-                    if(!user.hasOwnProperty('Avatar'))
-                        var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
-                    else 
-                        var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + user.Avatar;
-                    $(".avatar").css("background-image", 'url(' + avatar + ')');
-                }
-                else 
-                {
-                    if($("#center").html() != <?php echo $userId?>)
-                    {
-                        $(".midman-avatar").css("visibility", "visible");
-                    $(".midman-name").css("visibility", "visible"); 
-                    }
-                       
-                    if(data[index - 1].Id == <?php echo $userId?>)
-                    {
-                        $(".user-relationship").css("visibility", "hidden");
-                    }
-                    else 
-                        $(".user-relationship").css("visibility", "visible");
-                    if(data[index - 1].FNickName)
-                    {
-                        $(".name").html(data[index - 1].FNickName + "(" + data[index - 1].Name + ")");
-                    }
-                    else 
-                        $(".name").html(data[index - 1].Name);
-                    if(data[index - 1].Gender == '男') 
-                        $(".gender").css("background-image", 'url(/img/male.png)');
-                    else 
-                        $(".gender").css("background-image", 'url(/img/female.png)');
-                    if(!data[index - 1].hasOwnProperty('Avatar'))
-                        var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/maleavatar.png';
-                    else 
-                        var avatar = 'http://7xldgj.com1.z0.glb.clouddn.com/' + data[index - 1].Avatar;
-                    
-
-                    $(".avatar").css("background-image", 'url(' + avatar + ')');
-
-                }
-                */
                 
           //  }
             //计算当前点击的点与圆心(150,150)的X轴的夹角(弧度) --> 上半圆为负(0 ~ -180), 下半圆未正[0 ~ 180]
@@ -666,8 +707,6 @@
 
                 if(overlap == 1)
                 {
-
-
                     if(antiCross == 1)
                     {
 
@@ -792,6 +831,8 @@
 
             }
         });
+
+
     });
 
     
@@ -806,7 +847,7 @@
     $('#listpage').bootpag({
 
                 total:3,
-                maxVisible: 8,
+                maxVisible: 6,
                 page:1
             }).on("page", function(event, /* page number here */ num){
                 $.ajax({
@@ -826,12 +867,12 @@
                         //console.log(parseInt(j.count/8 + 1));
                        $('#listpage').bootpag({
 
-                            total: parseInt(j.count/8 + 1),
+                            total: parseInt(j.count/6 + 1),
                            
                         });
 
                        $("#totalpage").html(j.count);
-                        if(j.count > 8)
+                        if(j.count > 6)
                         {
                             $("#listpage").fadeIn(300);
                         }
@@ -873,38 +914,44 @@ function back() {
 }
 
 
-function sclick(index) {
+function sclick(index, parent) {
 
 
     $(".orderlist").hide();
     if(index == 0)
     {
-       $(".boss").addClass("selected");
-       $(".worker").removeClass("selected");
-       $(".qna").removeClass("selected");
-       $(".orderlist").css("margin-top", "-150px");
+       $(parent + " .boss").addClass("selected");
+       $(parent + " .worker").removeClass("selected");
+       $(parent + " .qna").removeClass("selected");
+     //  $(".orderlist").css("margin-top", "-150px");
      
     }
     else if(index == 1)
     {
-        $(".worker").addClass("selected");
-        $(".boss").removeClass("selected");
-        $(".qna").removeClass("selected");
-        $(".orderlist").css("margin-top", "-100px");
+        $(parent + " .worker").addClass("selected");
+        $(parent + " .boss").removeClass("selected");
+        $(parent + " .qna").removeClass("selected");
+     //   $(".orderlist").css("margin-top", "-100px");
     }
     else if(index == 2)
     {
-        $(".qna").addClass("selected");
-        $(".worker").removeClass("selected");
-        $(".boss").removeClass("selected");
-        $(".orderlist").css("margin-top", "-50px");
+        $(parent + " .qna").addClass("selected");
+        $(parent + " .worker").removeClass("selected");
+        $(parent + " .boss").removeClass("selected");
+       // $(".orderlist").css("margin-top", "-50px");
     }
-    $("#curpage").html(1);
-    $("#selecttype").html(index);
+    $(parent + " #curpage").html(1);
+    $(parent + " #selecttype").html(index);
+    var id = $(parent + " #selectid").html();
+    if(parent == '.modal-user')
+    {
+        id =  $('.midman').attr('selected-id');
+    }
+
     $.ajax({
         type: "get",
         url: "/index.php?r=relationship/openorder",
-        data:{"id":$("#selectid").html(), "index":index, "page":1},
+        data:{"id":id, "index":index, "page":1},
         beforeSend:function(){
             $(".cover").show();
         },
@@ -913,28 +960,29 @@ function sclick(index) {
         },
         success: function(json) {
            // window.alert(html);
-            $(".orderlist").fadeIn(1000);
+            $(parent + " .orderlist").fadeIn(500);
+         //   console.log(json);
+          //  return ;
             var j = JSON.parse(json);
          //   console.log(j.count);
            // console.log(j.count);
            // console.log(parseInt(j.count/8 + 1));
-            $('#listpage').bootpag({
+            $(parent + ' #listpage').bootpag({
 
                 total: parseInt(j.count/8 + 1),
                
             });
-
-            $("#totalpage").html(j.count);
+            $(parent + " #totalpage").html(j.count);
             if(j.count > 8)
             {
-                $("#listpage").fadeIn(1000);;
+                $(parent + " #listpage").fadeIn(500);;
             }
             else 
             {
-                 $("#listpage").hide();
+                 $(parent + " #listpage").hide();
             }
-            $("#totalpage").html(j.count);
-            $(".board").html(j.html);
+            $(parent + " #totalpage").html(j.count);
+            $(parent + " .board").html(j.html);
            // $(".board").fadeIn(1000);
 
 

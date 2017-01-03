@@ -14,7 +14,6 @@
 }
 
 
-
 #w0
 {
 	background-color: #fff;
@@ -175,14 +174,17 @@
 }
 .register-box .register-close
 {
-    background: url(../img/login-close.png);
+    background: url(../img/login_close_d.png);
     background-size: 100%;  
-    width: 15px;
-    height: 16px;
-    /* margin-left: 4px; */
-    margin-left: 300px;
-    margin-top: 6px;
+    width: 22px;
+    height: 22px;
+    margin-left: 298px;
     position: absolute;
+}
+.register-box .register-close:hover
+{
+    background: url(../img/login_close_s.png);
+    cursor: pointer;
 }
 .register-box .qr
 {
@@ -466,6 +468,7 @@ margin-top: -150px;
 .relationship-content
 {
     width: 100%;
+    height: 890px;
    
 }
 .section-relationship 
@@ -482,9 +485,8 @@ margin-top: -150px;
     height: 920px;
     border-radius:460px;
     position: relative;
-
     float: left;
-   
+    cursor:default;
    /* margin-right: 100px;
     margin-left: 300px;
     margin-top: 0px;
@@ -500,8 +502,8 @@ margin-top: -150px;
 .userinfo-bg
 {
     position: absolute;
-    width: 246px;
-    height: 274px;
+    width: 498px;
+    height: 340px;
     background-color:#fff;
     filter:alpha(opacity:10);
     opacity:0.1;
@@ -511,33 +513,64 @@ margin-top: -150px;
 
 }
 
+.userinfo-bg-b
+{
+    position: absolute;
+    width: 498px;
+    height: 340px;
+    background-color:#fff;
+    filter:alpha(opacity:20);
+    opacity:0.2;
+    margin-left: 858px;
+    margin-top: 90px;
+    border:1px solid #000;
+
+}
+
+
 .userinfo-spec
 {
-    margin-top: 110px;
+    margin-top: 120px;
     font-size: 18px;
     color: #fff;
     line-height: 1.6;
-    margin-left: 870px;
+    margin-left: 858px;
     position: absolute;
+    cursor:default;
 }
 
 .userinfo-spec .avatar
 {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background-size: 100%;
-    border-radius: 30px;
-    position: absolute;
+    border-radius: 40px;
+    position: relative;
+    margin-left: 28px;
 }
 .userinfo-spec .name
 {
-    font-size: 18px;
-    padding-left: 75px;
+    font-size: 20px;
+   /* padding-left: 75px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 220px;
+    width: 110px;
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 15px;
 }
+.userinfo-spec .nickname
+{
+    font-size: 18px;
+   /* padding-left: 75px;*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 136px;
+    text-align: center;
+}
+
 .userinfo-spec .title
 {
     font-size: 18px;
@@ -545,58 +578,306 @@ margin-top: -150px;
 }
 .userinfo-spec .gender
 {
-    margin-left: 75px;
-    width: 24px;
-    height: 24px;
+    /*margin-left: 75px;*/
+    width: 16px;
+    height: 16px;
     position: absolute;
-    margin-top: 1px;
+    margin-top: 10px;
+    background-size: 100%;
+    margin-left: 28px;
 }
 .userinfo-spec .user-relationship
 {
     margin-left: 105px;
-    width: 90px;
-    height: 26px;
+    width: 54px;
+    height: 16px;
+    margin-top: 10px;
+    background-size: 100%; 
+    margin-left: 54px;
 }
+.userinfo-spec .line1
+{
+    width:1px;
+    height:282px;
+    margin:0px auto;
+    padding:0px;
+    position: absolute;
+    margin-left: 136px;
+    background-color: rgba(255,255,255,0.2);
+    margin-top: -80px;
+
+}
+
 .userinfo-spec .midman
 {
     margin-top: 18px;
 }
 
+.userinfo-detail
+{
+    margin-top: 120px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+    margin-left: 1014px;
+    position: absolute;
+    cursor:default; 
+}
+
+.ubangnumber-title
+{
+    position: absolute;
+    font-size: 14px;
+    width: 100px
+}
+
+.ubangnumber-value
+{
+    position: absolute;
+    margin-left: 58px;
+    font-size: 12px;
+    margin-top: 1px;
+    width: 300px;
+}
+
+.location-title
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 24px;
+    width: 100px;
+}
+.location-value
+{
+    position: absolute;
+    margin-left: 45px;
+    font-size: 12px;
+    margin-top: 26px;
+    width: 300px;
+}
+
+.line2
+{
+    width: 325px;
+    height:1px;
+    position: absolute;
+    background-color: rgba(255,255,255,0.2);
+    margin-top: 57px;
+}
+
+.pic-title
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 69px;
+    width: 30px;
+}
+.pic-comma
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 80px;
+    width: 30px; 
+    margin-left: 35px;
+}
+.pic-value
+{
+    position: absolute;
+    margin-top: 69px;
+    margin-left: 50px;
+    
+}
+.pic-value .pic1
+{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 4px;
+}
+/*
+.pic-value .pic1:hover
+{ 
+    max-width:600px;
+    height:auto;
+    z-index: 10000; 
+    cursor: pointer;
+   
+}
+.pic-value .pic2:hover
+{ 
+    transform: scale(10);   
+    z-index: 10000; 
+    cursor: pointer;
+   
+}
+.pic-value .pic3:hover
+{ 
+    transform: scale(10);   
+    z-index: 10000; 
+    cursor: pointer;
+   
+}
+*/
+.pic-value .pic2
+{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin-left: 48px;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 4px;
+}
+.pic-value .pic3
+{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin-left: 96px;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 4px;
+}
+.spec-title
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 120px;
+    width: 30px;
+}
+.spec-comma
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 130px;
+    width: 30px; 
+    margin-left: 35px;   
+}
+.spec-bg
+{
+    position: absolute;
+    margin-top: 122px;
+    margin-left: 45px;
+    width: 280px;
+    height: 103px;
+}
+.spec-value
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 130px;
+    width: 270px;
+    margin-left: 56px;
+}
+
+.line3
+{
+    width: 325px;
+    height: 1px;
+    position: absolute;
+    background-color: rgba(255,255,255,0.2);
+    margin-top: 238px;
+}
+.midman
+{
+    position: absolute;
+    margin-top: 255px;
+}
+
 .midman .midman-title
 {
+    font-size: 14px;
+    width: 57px;
     position: absolute;
 }
 .midman .midman-avatar
 {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
     background-size: 100%;
-    margin-left: 75px;
+    /*margin-left: 75px;*/
+    margin-top: -5px;
     position: absolute;
+}
+#relationship .midman .midman-avatar:hover
+{
+    cursor: pointer;
 }
 .midman .midman-name
 {
    margin-left: 115px; 
 }
+
 .userinfo-order
 {
-    position: relative; 
+    position: absolute;
     font-size: 18px;
     color: #fff;
     line-height: 50px;
-    padding-top: 213px;
+    margin-top: 430px;
     margin-left: 858px;
-    width: 246px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1);
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    background-color: rgba(255,255,255,0.1);
+    width: 497px;
+    height: 50px;
 }
+.userinfo-order .boss
+{
+    position: absolute;
+    width: 166px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1);
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+.userinfo-order .icon
+{
+    position: absolute;
+    padding-left: 16px;
+    padding-top: 10px;
+    opacity:0.4;
+    filter:alpha(opacity=40); /* 针对 IE8 以及更早的版本 */
+}
+
+.userinfo-order .worker
+{
+    position: absolute;
+    width: 166px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1);
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    margin-left: 166px;
+}
+
+.userinfo-order .qna
+{
+    position: absolute;
+    width: 166px;
+    margin-left: 332px;
+}
+
 .userinfo-order .title
 {
     position: absolute;
-    padding-left: 12px;
+    padding-left: 53px;
+
 }
 .userinfo-order .arrow
 {
-   padding-left: 225px;
+   padding-left: 135px;
   
 }
 
@@ -610,14 +891,24 @@ margin-top: -150px;
 
 .orderlist
 {
-    margin-left: 1107px;
-    width: 260px;
+    position: absolute;
+    margin-left: 858px;
+    width: 497px;
     display:none;
     background:transparent;
     /*border: 1px solid rgba(0,0,0,0.1);*/
     background-color:rgba(255,255,255,0.1);
+    margin-top: 480px;
+
 
 }
+
+.orderlist ul
+{
+    margin-top: 0;
+    margin-bottom: 0px !important;
+}
+
 #listpage
 {
     margin-left: 1107px;
@@ -635,8 +926,13 @@ margin-top: -150px;
     margin-left: 0px;
     height: 50px;
     line-height: 50px;
-    width: 260px;
-    border: 1px solid rgba(0,0,0,0.1);
+    width: 480px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1);
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
     font-size: 18px;
 }
 
@@ -645,7 +941,7 @@ margin-top: -150px;
     margin-left: 12px;
     overflow: hidden; 
     text-overflow: ellipsis; 
-    width: 190px;
+    width: 290px;
     display: inline-block;
     table-layout: fixed;
     white-space: nowrap;
@@ -654,22 +950,57 @@ margin-top: -150px;
 .board .orderreward
 {
     float: right;
+    width: 100px;
+    text-align: right;
 }
 .goback
 {
-    background-image: url("../img/relationship_back.png");
-    left: 1155px;
-    top: 700px;
+    background-image: url("../img/relationship_back_d.png");
+    left: 1255px;
+    top: 780px;
     position: absolute;
     width: 80px;
     height: 40px;
     display: none;
 }
 
+.goback:hover
+{
+    background-image: url("../img/relationship_back_p.png");
+    cursor: pointer;
+}
 .userinfo-order .boss:hover
 {
     background-color:rgba(255,255,255,0.1);
-    cursor: pointer;
+    cursor: pointer !important;
+}
+
+.userinfo-order .boss:hover > .icon
+{
+    opacity:1.0;
+    filter:alpha(opacity=100); /* 针对 IE8 以及更早的版本 */
+    
+}
+
+.userinfo-order .selected > .icon
+{
+    opacity:1.0;
+    filter:alpha(opacity=100); /* 针对 IE8 以及更早的版本 */
+}
+
+
+
+.userinfo-order .worker:hover > .icon
+{
+    opacity:1.0;
+    filter:alpha(opacity=100); /* 针对 IE8 以及更早的版本 */
+    
+}
+.userinfo-order .qna:hover > .icon
+{
+    opacity:1.0;
+    filter:alpha(opacity=100); /* 针对 IE8 以及更早的版本 */
+    
 }
 
 .userinfo-order .worker:hover
@@ -686,7 +1017,7 @@ margin-top: -150px;
 .mine p
 {
     text-align:center;
-    font-size: 24px;
+    font-size: 20px;
     padding-top: 210px;
     color: #fff;
 }
@@ -763,4 +1094,9 @@ margin-top: -150px;
 {
     top: 50%;
     left: 50%;
+}
+
+.modal-user
+{
+    margin-left: -500px;
 }
