@@ -6185,8 +6185,8 @@ button.close {
 }
 
 .modal-backdrop.in {
-	filter: alpha(opacity=70);
-	opacity: .7
+	filter: alpha(opacity=80);
+	opacity: .8
 }
 
 .modal-header {

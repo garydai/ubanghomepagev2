@@ -12,7 +12,8 @@
 
     
 }
-
+body{ overflow: auto !important;} 
+.modal{ overflow: auto !important;} 
 
 #w0
 {
@@ -761,14 +762,14 @@ margin-top: -150px;
     margin-top: 122px;
     margin-left: 45px;
     width: 280px;
-    height: 103px;
+    height: 104px;
 }
 .spec-value
 {
     position: absolute;
     font-size: 14px;
     margin-top: 130px;
-    width: 270px;
+    width: 260px;
     margin-left: 56px;
 }
 
@@ -1099,4 +1100,11 @@ margin-top: -150px;
 .modal-user
 {
     margin-left: -500px;
+}
+
+
+img.emoji {  
+  // Override any img styles to ensure Emojis are displayed inline
+  margin: 0px !important;
+  display: inline !important;
 }

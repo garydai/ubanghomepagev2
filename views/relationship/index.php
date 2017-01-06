@@ -2,23 +2,24 @@
 <script type="text/javascript" src=" /js/jquery.dotdotdot.js"></script>
 <link rel="stylesheet" href="/css/lightbox.min.css">
 <script src="/js/lightbox.js"></script>
+<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2.3"></script>
 <div class="cover" style="position:absolute;">
     <div class="dots-loader"></div>
 
 </div>
 
-<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:scroll">
     <div class="modal-dialog">
         <div class="modal-content">
             
-            <div class="modal-body">您不能查看二度好友的一度好友</div>
+            <div class="modal-body">您不能查看该用户的一度好友，因为您与该用户是二度关系。</div>
             
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
 
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:scroll">
     <div class="modal-user" >
 
             <div class="userinfo-bg-b">
@@ -264,6 +265,10 @@
         }
         $(parent+".midman-avatar").css("visibility", "hidden");
         $(parent+".midman-name").css("visibility", "hidden");   
+        $(parent+".orderlist").hide();
+        $(parent+".boss").removeClass("selected");
+        $(parent+".worker").removeClass("selected");
+        $(parent+".qna").removeClass("selected");
         if(user.YBAccount)
             $(parent+".ubangnumber-value").html(user.YBAccount);
         else 
@@ -280,7 +285,7 @@
             $(parent+".gender").css("background-image", 'url(/img/female.png)');
         }
         if(user.Signature)
-            $(parent+".spec-value").html(user.Signature);
+            $(parent+".spec-value").html(twemoji.parse(user.Signature));
         else 
             $(parent+".spec-value").html("暂无说明");  
         //不是本人
@@ -345,7 +350,7 @@
                                            // window.alert(html);
                                             var result = jQuery.parseJSON(json); 
                                             var user = result.user;
-                                             
+                                            
                                             showUserInfo(user, '.modal-user ');
                                             $('#myModal').modal();
 
@@ -385,8 +390,9 @@
             for (var i = 0; i < photos.length; i++)
             {
                 var p = 'http://7xldgj.com1.z0.glb.clouddn.com/' + photos[i];
+                var p_b = p + "?imageView2/0/w/800";
                 var p_thumb = p  + "?imageView2/1/w/40/h/40";
-                string = string + '<a class="pic' + (i + 1) +'-big" href="' + p + '" data-lightbox="example-set" data-title=""><img class="pic' 
+                string = string + '<a class="pic' + (i + 1) +'-big" href="' + p_b + '" data-lightbox="example-set" data-title=""><img class="pic' 
                 + (i + 1) + '" src="' + p_thumb + '" alt=""/></a>';
            //     console.log(string);
             }
@@ -831,6 +837,13 @@
 
             }
         });
+       
+
+
+
+
+
+
 
 
     });
@@ -891,6 +904,7 @@
     
 function back() {
 
+    
     $.ajax({
             type: "get",
             url: "/index.php?r=relationship/friend",
@@ -903,7 +917,9 @@ function back() {
             },
             success: function(json) {
                // window.alert(html);
+                $(".orderlist").hide();
                 $("#selectindex").html(0);
+                $("#selectid").html(<?php echo $userId?>);
                 showPanel(json);
 
 
@@ -912,6 +928,8 @@ function back() {
 
    // parent.location.reload();
 }
+
+
 
 
 function sclick(index, parent) {
